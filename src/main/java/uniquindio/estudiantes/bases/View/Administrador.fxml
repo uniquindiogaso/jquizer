@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Registrar Docente">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="596.0">
+                           <children>
+                              <Text layoutX="173.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Docente">
+                                 <font>
+                                    <Font name="Arial Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                              <GridPane layoutX="14.0" layoutY="98.0" prefHeight="212.0" prefWidth="515.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="102.0" minHeight="0.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="160.0" minHeight="6.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="224.0" minHeight="2.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="284.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" textAlignment="CENTER" wrappingWidth="206.845703125">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtNombre" promptText="Ingrese Nombre" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido" textAlignment="CENTER" wrappingWidth="212.13671875" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Verdana" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtApellido" promptText="Ingrese Apellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documento" textAlignment="CENTER" wrappingWidth="208.13671875" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtDocumento" promptText="Ingrese Documento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtEmail" promptText="Ingrese Email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grupo" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="comboGrupoD" prefHeight="20.0" prefWidth="256.0" promptText="Elija Grupo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="comboCiudad" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtTelefono" promptText="Ingrese Telefono" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                              <Button layoutX="430.0" layoutY="321.0" mnemonicParsing="false" text="Registrar">
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Registrar Alumno">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="596.0">
+                           <children>
+                              <Text layoutX="173.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Alumno">
+                                 <font>
+                                    <Font name="Arial Bold" size="29.0" />
+                                 </font>
+                              </Text>
+                              <GridPane layoutX="14.0" layoutY="98.0" prefHeight="212.0" prefWidth="515.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="102.0" minHeight="0.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="160.0" minHeight="6.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="224.0" minHeight="2.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="284.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" textAlignment="CENTER" wrappingWidth="206.845703125">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtNombre1" promptText="Ingrese Nombre" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido" textAlignment="CENTER" wrappingWidth="212.13671875" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Verdana" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtApellido1" promptText="Ingrese Apellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documento" textAlignment="CENTER" wrappingWidth="208.13671875" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtDocumento1" promptText="Ingrese Documento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtEmail1" promptText="Ingrese Email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="comboCursoE" prefHeight="20.0" prefWidth="256.0" promptText="Elija Curso" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="comboCiudad1" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Verdana Italic" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="txtTelefono1" promptText="Ingrese Telefono" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                              <Button layoutX="430.0" layoutY="321.0" mnemonicParsing="false" text="Registrar">
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Administar Cursos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="208.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administar Cursos">
+                           <font>
+                              <Font name="Verdana Italic" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                        <TextField fx:id="txtNombreCurso" layoutX="122.0" layoutY="46.0" promptText="Ingrese Nombre" />
+                        <Text layoutX="13.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intensidad" />
+                        <TextField fx:id="txtIntensidad" layoutX="81.0" layoutY="173.0" prefHeight="25.0" prefWidth="161.0" promptText="Ingrese Vlor de intensidad" />
+                        <Text layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descricion" />
+                        <TextArea fx:id="txtDescripcionCurso" layoutX="14.0" layoutY="97.0" prefHeight="60.0" prefWidth="568.0" promptText="Ingrese Descripcion del curso" />
+                        <Text layoutX="381.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                        <ComboBox fx:id="comboEstado" layoutX="432.0" layoutY="173.0" prefWidth="150.0" promptText="Elija Estado" />
+                        <Text layoutX="300.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+                        <TextField fx:id="txtIdCurso" layoutX="381.0" layoutY="46.0" promptText="Ingrese Id del curso" />
+                        <Button fx:id="btnAgregarCurso" layoutX="534.0" layoutY="332.0" mnemonicParsing="false" text="Agregar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Registrar Grupo">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="220.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Grupo">
+                           <font>
+                              <Font name="Verdana Italic" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="13.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                        <TextField fx:id="txtNombreGrupo" layoutX="79.0" layoutY="47.0" promptText="Nombre del Grupo" />
+                        <Text layoutX="306.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
+                        <TextField fx:id="txtAñoGrupo" layoutX="364.0" layoutY="46.0" promptText="Año del grupo" />
+                        <Text layoutX="30.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+                        <TextField fx:id="txtIdGrupo" layoutX="79.0" layoutY="86.0" promptText="Ingrese Id" />
+                        <Text layoutX="276.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Interno" />
+                        <TextField fx:id="txtCodInternoGrupo" layoutX="364.0" layoutY="86.0" promptText="Ingrese Codigo interno" />
+                        <Text layoutX="20.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" />
+                        <ComboBox fx:id="comboCursos" layoutX="79.0" layoutY="128.0" prefWidth="150.0" promptText="Elija un Curso" />
+                        <Button fx:id="btnAgregarGrupo" layoutX="513.0" layoutY="332.0" mnemonicParsing="false" text="Agregar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Reportes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="105.0" layoutY="27.0" mnemonicParsing="false" text="Tema" />
+                        <Button layoutX="250.0" layoutY="27.0" mnemonicParsing="false" text="Grupo" />
+                        <Button layoutX="389.0" layoutY="27.0" mnemonicParsing="false" text="Estudiante" />
+                        <Button layoutX="171.0" layoutY="126.0" mnemonicParsing="false" text="Curso" />
+                        <Button layoutX="325.0" layoutY="126.0" mnemonicParsing="false" text="Pregunta" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
