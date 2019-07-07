@@ -45,4 +45,15 @@ public class UsuarioPOJO {
     	
     }
     
+    
+    public List<Persona> getDocentesActivos(){
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query
+                    = "SELECT u.id , concat(p.nombre,' ' ,p.apellido) FROM usuario u , persona p WHERE u.persona_id = p.id AND tipo = 'Docente' and u.activo = true";
+
+            return con.createQuery(query)
+                    .executeAndFetch(Persona.class);
+        }
+    }
+    
 }
