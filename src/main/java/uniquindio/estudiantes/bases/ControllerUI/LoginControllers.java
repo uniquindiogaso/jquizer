@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.StartApp;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Main.Main;
+import uniquindio.estudiantes.bases.Model.Persona;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class LoginControllers {
@@ -51,19 +52,30 @@ public class LoginControllers {
 		String usuario = txtUser.getText();
 		String contrasena = txtPass.getText();
 		
-		Usuario user = manejador.validarLogin(usuario, contrasena);
+		Usuario user = manejador.getPojo().comprobarLogin(usuario, contrasena);
 		
-		String tipo = user.getPersona().getTipo();
-		
-		if(user!=null && tipo.equals("Propietario") )
-		{
-			escenario.close();
-			manejador.cargarEscenarioAdmin(user);
-		}
-		else
-		{
+		if ( null != usuario ) {
+			
+			
+			Persona p = manejador.getPojo().getPersona(user);
+			
+			if ("Propietario".equals(p.getTipo())) {
+				//propietario
+				escenario.close();
+				manejador.cargarEscenarioAdmin(user);
+			}else if ( "Profesor".equals(p.getTipo())) {
+				//profesor
+				
+			}else if ( "Alumno".equals(p.getTipo())) {
+				//alumno
+			}
+			
+			
+		}else {
 			System.out.println(" paila ");
 		}
+		
+
 		
 		
     }

@@ -3,6 +3,7 @@ package uniquindio.estudiantes.bases.Controllers;
 
 import java.util.List;
 
+import uniquindio.estudiantes.bases.Model.Persona;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
 
@@ -26,7 +27,7 @@ public class UsuarioController {
             //No Existe ningun usuario con esos datos
         	//System.out.println("no hay nadie");
             return null;
-        }
+		}
 
         if (usuarios.size() == 1) {
             //TODO Consultar Persona y seatearlo para enviarlo
@@ -35,6 +36,11 @@ public class UsuarioController {
         }
         //error general
         return null;
+    }
+    
+    
+    public Persona getPersona ( Usuario u) {
+    		return pojo.getPersona(u);
     }
 
 }
