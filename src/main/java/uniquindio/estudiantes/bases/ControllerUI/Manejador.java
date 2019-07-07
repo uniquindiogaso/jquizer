@@ -1,0 +1,95 @@
+package uniquindio.estudiantes.bases.ControllerUI;
+
+import java.io.IOException;
+import java.util.List;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Main.Main;
+import uniquindio.estudiantes.bases.Model.Usuario;
+import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
+
+public class Manejador {
+	
+	private Stage escenario;
+	private UsuarioPOJO pojo;
+	
+	
+	public Manejador (Stage escenario)
+	{
+		this.escenario = escenario;
+		pojo = new UsuarioPOJO();
+		cargarEscenarioLogin();
+	}
+	
+	public void cargarEscenarioLogin()
+	{
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/Login.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			LoginControllers login = loader.getController();
+			login.setEscenario(stage);
+			login.setManejador(this);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	
+		
+	}
+	
+	public void cargarEscenarioDocente(Usuario usuario)
+	{
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/Docente.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			DocenteControllers docente = loader.getController();
+			docente.setEscenario(stage);
+			docente.setManejador(this);
+			docente.setUser(usuario);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	
+		
+	}
+	
+	public Usuario validarLogin(String usuario , String contrasena)
+	{
+		
+		List<Usuario> usuarios = pojo.login(usuario, contrasena);
+
+        if (usuarios.isEmpty()) {
+        	
+            return null;
+        }
+
+        if (usuarios.size() == 1) {
+        	
+            return usuarios.get(0);           
+        }
+        //error general
+        return null;
+		
+	}
+
+}

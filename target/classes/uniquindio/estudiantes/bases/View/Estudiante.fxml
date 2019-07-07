@@ -7,8 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.Controller.EstudiantesControllers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.Controller.EstudiantesControllers">
    <children>
       <TabPane prefHeight="510.0" prefWidth="627.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -66,6 +65,21 @@
                      </children>
                   </AnchorPane>
               </content>
+            </Tab>
+            <Tab text="Peso de las notas">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableNotas1" layoutX="14.0" layoutY="29.0" prefHeight="412.0" prefWidth="589.0">
+                           <columns>
+                              <TableColumn prefWidth="245.5999813079834" text="Nombre" />
+                              <TableColumn prefWidth="132.79998779296875" text="Tipo" />
+                              <TableColumn prefWidth="199.20004272460938" text="Peso" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
         </tabs>
       </TabPane>

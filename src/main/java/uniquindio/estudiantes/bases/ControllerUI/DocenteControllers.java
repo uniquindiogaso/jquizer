@@ -9,6 +9,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class DocenteControllers {
 	
@@ -87,6 +89,54 @@ public class DocenteControllers {
     @FXML
     private TableView<?> tableHorario;
 	    
-	    
+	private Manejador manejador;
+	
+	private Stage escenario;
+	
+	private Usuario user;
 
+	/**
+	 * @return the manejador
+	 */
+	public Manejador getManejador() {
+		return manejador;
+	}
+
+	/**
+	 * @param manejador the manejador to set
+	 */
+	public void setManejador(Manejador manejador) {
+		this.manejador = manejador;
+	}
+
+	/**
+	 * @return the escenario
+	 */
+	public Stage getEscenario() {
+		return escenario;
+	}
+
+	/**
+	 * @param escenario the escenario to set
+	 */
+	public void setEscenario(Stage escenario) {
+		this.escenario = escenario;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public Usuario getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
+
+	
+	
 }
