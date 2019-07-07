@@ -7,6 +7,7 @@ import org.sql2o.Connection;
 
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
 import uniquindio.estudiantes.bases.Model.Tema;
+import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Bd.DbHelper;
 
@@ -20,6 +21,14 @@ public class PreguntasPOJO {
             		.addParameter("propietario_id", docente.getId())
             		.addParameter("tema_id", tema.getId())
                     .executeAndFetch(BancoPreguntas.class);
+        }
+    }
+    
+    public List<TipoPregunta> obtenerTiposActivos(){
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query = "select id , codinterno , nombre from tipo_preg where activo = true";
+            return con.createQuery(query)
+                    .executeAndFetch(TipoPregunta.class);
         }
     }
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
+import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.PreguntasPOJO;
 
@@ -41,10 +42,10 @@ public class StartApp{
         
         PreguntasPOJO p = new PreguntasPOJO();
         
-        List<BancoPreguntas> bp = p.obtenerBanco(null, null);
+        List<TipoPregunta> bp = p.obtenerTiposActivos();
         
-        for(BancoPreguntas b : bp) {
-        	System.out.println(b);
+        for(TipoPregunta b : bp) {
+        	System.out.println(b.getNombre());
         }
         
     }
