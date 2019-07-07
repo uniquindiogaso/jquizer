@@ -17,7 +17,7 @@ public class Persona {
     private String correo;
     private String telefono;
     private String tipo;
-    private Ciudad Ciudad;
+    private Ciudad CiudadResidencia;
     private int ciudad_id;
 
 
@@ -39,7 +39,7 @@ public class Persona {
         this.correo = correo;
         this.telefono = telefono;
         this.tipo = tipo;
-        this.Ciudad = Ciudad;
+        this.CiudadResidencia = Ciudad;
     }
 
     public int getId() {
@@ -90,12 +90,24 @@ public class Persona {
         this.tipo = tipo;
     }
 
-    public Ciudad getCiudad_id() {
-        return Ciudad;
-    }
+	public Ciudad getCiudadResidencia() {
+		return CiudadResidencia;
+	}
 
-    public void setCiudad_id(Ciudad ciudad_id) {
-        this.Ciudad = ciudad_id;
-    }
+	public void setCiudadResidencia(Ciudad ciudadResidencia) {
+		CiudadResidencia = ciudadResidencia;
+	}
 
+	public int getCiudad_id() {
+		return ciudad_id;
+	}
+
+	public void setCiudad_id(int ciudad_id) {
+		this.ciudad_id = ciudad_id;
+	}
+
+
+    
+
+    
 }

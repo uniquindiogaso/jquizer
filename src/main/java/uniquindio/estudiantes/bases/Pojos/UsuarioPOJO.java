@@ -33,6 +33,7 @@ public class UsuarioPOJO {
     
     
     public Persona getPersona(Usuario u) {
+    	System.out.println("Personaid " + u.getId());
         try (Connection con = DbHelper.getSql2o().open()) {
             final String query
                     = "select id , nombre , apellido , correo , telefono , tipo , ciudad_id from persona WHERE id = :persona_id";
