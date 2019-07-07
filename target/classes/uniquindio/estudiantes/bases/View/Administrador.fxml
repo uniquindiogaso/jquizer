@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -18,22 +21,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane layoutX="1.0" layoutY="-3.0" prefHeight="490.0" prefWidth="651.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="1.0" layoutY="-3.0" prefHeight="444.0" prefWidth="680.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Registrar Docente">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="596.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="674.0">
                            <children>
                               <Text layoutX="173.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Docente">
                                  <font>
                                     <Font name="Arial Bold" size="29.0" />
                                  </font>
                               </Text>
-                              <GridPane layoutX="14.0" layoutY="98.0" prefHeight="212.0" prefWidth="515.0">
+                              <GridPane layoutX="14.0" layoutY="98.0" prefHeight="247.0" prefWidth="515.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -72,18 +75,12 @@
                                        </font>
                                     </Text>
                                     <TextField fx:id="txtEmail" promptText="Ingrese Email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grupo" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
                                        <font>
                                           <Font name="Verdana Italic" size="20.0" />
                                        </font>
                                     </Text>
-                                    <ComboBox fx:id="comboGrupoD" prefHeight="20.0" prefWidth="256.0" promptText="Elija Grupo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="6">
-                                       <font>
-                                          <Font name="Verdana Italic" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <ComboBox fx:id="comboCiudad" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="comboCiudad" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="Verdana Italic" size="20.0" />
@@ -107,7 +104,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="596.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="674.0">
                            <children>
                               <Text layoutX="173.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Alumno">
                                  <font>
@@ -125,7 +122,6 @@
                                     <RowConstraints maxHeight="224.0" minHeight="2.0" prefHeight="35.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="284.0" minHeight="0.0" prefHeight="32.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="339.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
@@ -153,18 +149,12 @@
                                        </font>
                                     </Text>
                                     <TextField fx:id="txtEmail1" promptText="Ingrese Email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="5">
                                        <font>
                                           <Font name="Verdana Italic" size="20.0" />
                                        </font>
                                     </Text>
-                                    <ComboBox fx:id="comboCursoE" prefHeight="20.0" prefWidth="256.0" promptText="Elija Curso" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad" textAlignment="CENTER" wrappingWidth="211.13671875" GridPane.rowIndex="6">
-                                       <font>
-                                          <Font name="Verdana Italic" size="20.0" />
-                                       </font>
-                                    </Text>
-                                    <ComboBox fx:id="comboCiudad1" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="comboCiudad1" prefHeight="20.0" prefWidth="256.0" promptText="Elija Ciudad Actual" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono" textAlignment="CENTER" wrappingWidth="215.13671875" GridPane.rowIndex="4">
                                        <font>
                                           <Font name="Verdana Italic" size="20.0" />
@@ -188,24 +178,24 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="396.0" prefWidth="651.0">
                      <children>
-                        <Text layoutX="208.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administar Cursos">
+                        <Text layoutX="248.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administar Cursos">
                            <font>
                               <Font name="Verdana Italic" size="20.0" />
                            </font>
                         </Text>
                         <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
                         <TextField fx:id="txtNombreCurso" layoutX="122.0" layoutY="46.0" promptText="Ingrese Nombre" />
-                        <Text layoutX="13.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intensidad" />
-                        <TextField fx:id="txtIntensidad" layoutX="81.0" layoutY="173.0" prefHeight="25.0" prefWidth="161.0" promptText="Ingrese Vlor de intensidad" />
+                        <Text layoutX="23.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intensidad" />
+                        <TextField fx:id="txtIntensidad" layoutX="139.0" layoutY="173.0" prefHeight="25.0" prefWidth="161.0" promptText="Ingrese Vlor de intensidad" />
                         <Text layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descricion" />
-                        <TextArea fx:id="txtDescripcionCurso" layoutX="14.0" layoutY="97.0" prefHeight="60.0" prefWidth="568.0" promptText="Ingrese Descripcion del curso" />
-                        <Text layoutX="381.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
-                        <ComboBox fx:id="comboEstado" layoutX="432.0" layoutY="173.0" prefWidth="150.0" promptText="Elija Estado" />
-                        <Text layoutX="300.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
-                        <TextField fx:id="txtIdCurso" layoutX="381.0" layoutY="46.0" promptText="Ingrese Id del curso" />
-                        <Button fx:id="btnAgregarCurso" layoutX="534.0" layoutY="332.0" mnemonicParsing="false" text="Agregar" />
+                        <TextArea fx:id="txtDescripcionCurso" layoutX="14.0" layoutY="97.0" prefHeight="60.0" prefWidth="636.0" promptText="Ingrese Descripcion del curso" />
+                        <Text layoutX="420.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado" />
+                        <ComboBox fx:id="comboEstado" layoutX="498.0" layoutY="173.0" prefWidth="150.0" promptText="Elija Estado" />
+                        <Text layoutX="426.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+                        <TextField fx:id="txtIdCurso" layoutX="488.0" layoutY="46.0" promptText="Ingrese Id del curso" />
+                        <Button fx:id="btnAgregarCurso" layoutX="607.0" layoutY="376.0" mnemonicParsing="false" text="Agregar" />
                         <Text layoutX="14.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar Docente" />
-                        <TableView layoutX="13.0" layoutY="216.0" prefHeight="148.0" prefWidth="249.0">
+                        <TableView layoutX="13.0" layoutY="216.0" prefHeight="160.0" prefWidth="635.0">
                           <columns>
                             <TableColumn prefWidth="132.80005168914795" text="Nombre" />
                             <TableColumn minWidth="4.0" prefWidth="115.20002136230468" text="Codigo" />
@@ -226,17 +216,17 @@
                         </Text>
                         <Text layoutX="20.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
                         <TextField fx:id="txtNombreGrupo" layoutX="79.0" layoutY="47.0" promptText="Nombre del Grupo" />
-                        <Text layoutX="306.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
-                        <TextField fx:id="txtAñoGrupo" layoutX="364.0" layoutY="46.0" promptText="Año del grupo" />
-                        <Text layoutX="20.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
-                        <TextField fx:id="txtIdGrupo" layoutX="79.0" layoutY="86.0" promptText="Ingrese Id" />
-                        <Text layoutX="276.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Interno" />
-                        <TextField fx:id="txtCodInternoGrupo" layoutX="364.0" layoutY="86.0" promptText="Ingrese Codigo interno" />
-                        <Text layoutX="20.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" />
-                        <ComboBox fx:id="comboCursos" layoutX="79.0" layoutY="128.0" prefWidth="150.0" promptText="Elija un Curso" />
-                        <Button fx:id="btnAgregarGrupo" layoutX="561.0" layoutY="332.0" mnemonicParsing="false" text="Agregar" />
-                        <Text layoutX="20.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar Estudiantes" />
-                        <TableView layoutX="20.0" layoutY="200.0" prefHeight="156.0" prefWidth="230.0">
+                        <Text layoutX="457.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año" />
+                        <TextField fx:id="txtAñoGrupo" layoutX="488.0" layoutY="47.0" promptText="Año del grupo" />
+                        <Text layoutX="246.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" />
+                        <TextField fx:id="txtIdGrupo" layoutX="266.0" layoutY="47.0" promptText="Ingrese Id" />
+                        <Text layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Interno" />
+                        <TextField fx:id="txtCodInternoGrupo" layoutX="123.0" layoutY="86.0" promptText="Ingrese Codigo interno" />
+                        <Text layoutX="348.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso" />
+                        <ComboBox fx:id="comboCursos" layoutX="404.0" layoutY="86.0" prefWidth="150.0" promptText="Elija un Curso" />
+                        <Button fx:id="btnAgregarGrupo" layoutX="607.0" layoutY="376.0" mnemonicParsing="false" text="Agregar" />
+                        <Text layoutX="20.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar Estudiantes" />
+                        <TableView layoutX="20.0" layoutY="148.0" prefHeight="224.0" prefWidth="646.0">
                           <columns>
                             <TableColumn prefWidth="112.00000381469727" text="Nombre" />
                             <TableColumn prefWidth="114.40000915527344" text="Codigo" />
@@ -246,15 +236,18 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Reportes">
+            <Tab text="Estadisticas">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="687.0">
                      <children>
-                        <Button layoutX="27.0" layoutY="40.0" mnemonicParsing="false" text="Tema" />
-                        <Button layoutX="243.0" layoutY="40.0" mnemonicParsing="false" text="Grupo" />
-                        <Button layoutX="353.0" layoutY="40.0" mnemonicParsing="false" text="Estudiante" />
-                        <Button layoutX="146.0" layoutY="40.0" mnemonicParsing="false" text="Curso" />
-                        <Button layoutX="493.0" layoutY="40.0" mnemonicParsing="false" text="Pregunta" />
+                        <AreaChart layoutX="14.0" layoutY="8.0" prefHeight="404.0" prefWidth="655.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </AreaChart>
                      </children>
                   </AnchorPane>
               </content>
@@ -263,13 +256,18 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="28.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-                        <TextField layoutX="94.0" layoutY="46.0" />
-                        <Text layoutX="28.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" />
-                        <TextField layoutX="28.0" layoutY="116.0" prefHeight="61.0" prefWidth="599.0" />
-                        <Text layoutX="284.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intensidad" />
-                        <TextField layoutX="356.0" layoutY="46.0" prefHeight="26.0" prefWidth="174.0" />
-                        <Button layoutX="27.0" layoutY="304.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="82.0" text="Crear" />
+                        <Text layoutX="28.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                        <TextField layoutX="124.0" layoutY="77.0" />
+                        <Text layoutX="28.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion" />
+                        <TextField layoutX="28.0" layoutY="147.0" prefHeight="72.0" prefWidth="641.0" />
+                        <Text layoutX="379.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intensidad" />
+                        <TextField layoutX="492.0" layoutY="77.0" prefHeight="26.0" prefWidth="174.0" />
+                        <Button layoutX="584.0" layoutY="253.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="82.0" text="Crear" />
+                        <Text layoutX="256.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plan de Estudios">
+                           <font>
+                              <Font name="Verdana Bold Italic" size="20.0" />
+                           </font>
+                        </Text>
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -277,20 +275,25 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="651.0">
                      <children>
-                        <Button layoutX="544.0" layoutY="313.0" mnemonicParsing="false" text="Crear" />
-                        <TextField layoutX="426.0" layoutY="51.0" promptText="efef" text="Hora" />
-                        <Text layoutX="369.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora" />
-                        <Text layoutX="367.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar" />
-                        <TextField layoutX="426.0" layoutY="100.0" promptText="efef" text="Lugar" />
-                        <Text layoutX="366.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha" />
-                        <DatePicker layoutX="426.0" layoutY="151.0" />
-                        <ComboBox layoutX="20.0" layoutY="28.0" prefWidth="150.0" promptText="Examen/Quiz" />
-                        <TreeTableView layoutX="21.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0">
+                        <Button layoutX="545.0" layoutY="344.0" mnemonicParsing="false" text="Crear" />
+                        <TextField layoutX="427.0" layoutY="82.0" promptText="efef" text="Hora" />
+                        <Text layoutX="370.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora" />
+                        <Text layoutX="368.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lugar" />
+                        <TextField layoutX="427.0" layoutY="131.0" promptText="efef" text="Lugar" />
+                        <Text layoutX="367.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha" />
+                        <DatePicker layoutX="427.0" layoutY="182.0" />
+                        <ComboBox layoutX="81.0" layoutY="61.0" prefWidth="150.0" promptText="Examen/Quiz" />
+                        <TreeTableView layoutX="22.0" layoutY="95.0" prefHeight="306.0" prefWidth="267.0">
                           <columns>
-                            <TreeTableColumn prefWidth="106.40002822875977" text="Cursos" />
-                            <TreeTableColumn minWidth="0.0" prefWidth="92.79998779296875" text="Grupos" />
+                            <TreeTableColumn prefWidth="127.0" text="Cursos" />
+                            <TreeTableColumn minWidth="0.0" prefWidth="138.0" text="Grupos" />
                           </columns>
                         </TreeTableView>
+                        <Text layoutX="292.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horarios">
+                           <font>
+                              <Font name="Verdana Bold Italic" size="20.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
                </content>
