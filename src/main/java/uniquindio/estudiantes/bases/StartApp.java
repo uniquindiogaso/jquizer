@@ -1,7 +1,13 @@
 package uniquindio.estudiantes.bases;
 
+import java.util.List;
+import java.util.Map;
+
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
+import uniquindio.estudiantes.bases.Model.BancoPreguntas;
+import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
+import uniquindio.estudiantes.bases.Pojos.PreguntasPOJO;
 
 /**
  *
@@ -33,6 +39,14 @@ public class StartApp{
 //
         UsuarioController usuarioControl = new UsuarioController();
         Usuario u = usuarioControl.comprobarLogin("sgonzalez", "123");
+        
+        PreguntasPOJO p = new PreguntasPOJO();
+        
+        List<TipoPregunta> bp = p.obtenerTiposActivos();
+        
+        for(TipoPregunta b : bp) {
+        	System.out.println(b.getNombre());
+        }
         
     }
     
