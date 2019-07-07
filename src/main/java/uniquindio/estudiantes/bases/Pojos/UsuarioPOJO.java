@@ -30,6 +30,18 @@ public class UsuarioPOJO {
                     .executeAndFetch(Usuario.class);
         }
     }
+    
+    
+    public Persona getPersona(Usuario u) {
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query
+                    = "select id , nombre , apellido , correo , telefono , tipo , ciudad_id from persona WHERE id = :persona_id";
 
+            return con.createQuery(query)
+                    .addParameter("persona_id", u.getPersona_id())                    
+                    .executeAndFetchFirst(Persona.class);
+        }	
+    	
+    }
     
 }

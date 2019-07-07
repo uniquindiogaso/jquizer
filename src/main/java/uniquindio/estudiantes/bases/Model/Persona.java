@@ -20,6 +20,7 @@ public class Persona {
     private Ciudad Ciudad;
     private int ciudad_id;
 
+
     public Persona() {
     }
 

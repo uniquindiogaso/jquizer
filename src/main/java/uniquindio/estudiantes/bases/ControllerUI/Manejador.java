@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Main.Main;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
@@ -14,13 +15,13 @@ import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
 public class Manejador {
 	
 	private Stage escenario;
-	private UsuarioPOJO pojo;
-	
+	private UsuarioController usercontroller;
+
 	
 	public Manejador (Stage escenario)
 	{
 		this.escenario = escenario;
-		pojo = new UsuarioPOJO();
+		usercontroller = new UsuarioController();
 		cargarEscenarioLogin();
 	}
 	
@@ -97,24 +98,13 @@ public class Manejador {
 	
 		
 	}
-	
-	public Usuario validarLogin(String usuario , String contrasena)
-	{
-		
-		List<Usuario> usuarios = pojo.login(usuario, contrasena);
 
-        if (usuarios.isEmpty()) {
-        	
-            return null;
-        }
-
-        if (usuarios.size() == 1) {
-        	
-            return usuarios.get(0);           
-        }
-        //error general
-        return null;
-		
+	public UsuarioController getPojo() {
+		return usercontroller;
 	}
+	
+
+	
+	
 
 }
