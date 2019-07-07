@@ -43,6 +43,8 @@ public class LoginControllers {
 	
 	private Stage escenario;
 	
+//-----------------------------------------Metodos------------------------------------------------------------------------
+	
 	@FXML
     void validarLogin(ActionEvent event) {
 
@@ -51,10 +53,12 @@ public class LoginControllers {
 		
 		Usuario user = manejador.validarLogin(usuario, contrasena);
 		
-		if(user!=null )
+		String tipo = user.getPersona().getTipo();
+		
+		if(user!=null && tipo.equals("Propietario") )
 		{
 			escenario.close();
-			manejador.cargarEscenarioDocente(user);
+			manejador.cargarEscenarioAdmin(user);
 		}
 		else
 		{
@@ -62,8 +66,9 @@ public class LoginControllers {
 		}
 		
 		
-		
     }
+	
+//---------------------------------Get`s and Set`s------------------------------------------------------------------------
 	
 
 	/**

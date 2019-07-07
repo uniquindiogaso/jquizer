@@ -73,6 +73,31 @@ public class Manejador {
 		
 	}
 	
+	public void cargarEscenarioAdmin(Usuario usuario)
+	{
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/Administrador.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			AdminControllers administrador = loader.getController();
+			administrador.setEscenario(stage);
+			administrador.setManejador(this);
+			administrador.setUser(usuario);
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	
+		
+	}
+	
 	public Usuario validarLogin(String usuario , String contrasena)
 	{
 		
