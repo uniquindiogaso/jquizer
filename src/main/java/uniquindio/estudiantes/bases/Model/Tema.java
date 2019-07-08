@@ -73,9 +73,14 @@ public class Tema {
         this.nombre = nombre;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Temas{" + "id=" + id + ", codInterno=" + codInterno + ", descripcion=" + descripcion + ", activo=" + activo + ", nombre=" + nombre + '}';
+//    }
+    
     @Override
     public String toString() {
-        return "Temas{" + "id=" + id + ", codInterno=" + codInterno + ", descripcion=" + descripcion + ", activo=" + activo + ", nombre=" + nombre + '}';
+        return nombre;
     }
     
     

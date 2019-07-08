@@ -1,7 +1,13 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -10,11 +16,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Controllers.TemasController;
+import uniquindio.estudiantes.bases.Model.Persona;
+import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class DocenteControllers {
 	
-    @FXML
+	@FXML
     private TextField txtNombreE;
 
     @FXML
@@ -33,7 +42,7 @@ public class DocenteControllers {
     private TextField txtDuracion;
 
     @FXML
-    private ComboBox<?> comboDocente;
+    private ComboBox<Persona> comboDocente;
 
     @FXML
     private ComboBox<?> comoboEstadoE;
@@ -48,6 +57,9 @@ public class DocenteControllers {
     private Button btnCrearEvaluacion;
 
     @FXML
+    private ComboBox<Tema> comboTemas2;
+
+    @FXML
     private TextArea txtEnunciadoFV;
 
     @FXML
@@ -60,10 +72,16 @@ public class DocenteControllers {
     private RadioButton rbtFalso;
 
     @FXML
-    private ComboBox<?> comboTemas;
+    private ComboBox<Tema> comboTemas;
+
+    @FXML
+    private CheckBox checkPublicaVoF;
 
     @FXML
     private TextArea txtEnunciadoSeleccion;
+
+    @FXML
+    private CheckBox checkPublica;
 
     @FXML
     private TextArea txtEnunciadoEmparejar;
@@ -72,7 +90,13 @@ public class DocenteControllers {
     private Button btnAgregar;
 
     @FXML
+    private CheckBox checkPublicaE;
+
+    @FXML
     private TableView<?> tableBancoPublico;
+
+    @FXML
+    private ComboBox<Tema> comboTemas1;
 
     @FXML
     private TableView<?> tableBancoPrivado;
@@ -88,14 +112,81 @@ public class DocenteControllers {
 
     @FXML
     private TableView<?> tableHorario;
+
+    @FXML
+    private TableView<?> tableReporteCurso;
 	    
 	private Manejador manejador;
 	
 	private Stage escenario;
 	
 	private Usuario user;
+
 	
 //-----------------------------------------Metodos------------------------------------------------------------------------
+
+	public DocenteControllers() {
+		cargarTemas();
+		cargarDocentes();
+	}
+	
+	@FXML
+	void cargarTemas () {
+		
+		try {
+			
+			ObservableList<Tema> temas = FXCollections.observableArrayList();
+			
+			List<Tema> t = manejador.getTemasController().obtenerTemas();
+			
+			System.out.println("Temas = " + t.size());
+			for(Tema tx : t ) {
+				System.out.println("tema " + tx.getNombre());
+			}
+			
+			temas.addAll(manejador.getTemasController().obtenerTemas());
+			comboTemas.setItems(temas);
+			comboTemas1.setItems(temas);
+			comboTemas2.setItems(temas);
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			System.out.println("no carga " + e.getMessage());
+			
+			e.getStackTrace();
+			
+		}
+
+	}
+	
+	@FXML
+	void cargarDocentes(){
+		
+		try {
+
+			ObservableList<Persona> personas = FXCollections.observableArrayList();
+			
+			List<Persona> t = manejador.getPojo().getDocentes();
+			
+			personas.addAll(manejador.getPojo().getDocentes());
+			comboDocente.setItems(personas);
+			
+			comboDocente.getSelectionModel();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			System.out.println("no carga " + e.getMessage());
+			
+			e.getStackTrace();
+			
+		}
+		
+	}
+	
+
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 	

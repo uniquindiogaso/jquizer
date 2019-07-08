@@ -3,11 +3,16 @@ package uniquindio.estudiantes.bases;
 import java.util.List;
 import java.util.Map;
 
+import uniquindio.estudiantes.bases.Controllers.TemasController;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
+import uniquindio.estudiantes.bases.Model.Persona;
+import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.PreguntasPOJO;
+import uniquindio.estudiantes.bases.Pojos.TemasPOJO;
+import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
 
 /**
  *
@@ -16,6 +21,8 @@ import uniquindio.estudiantes.bases.Pojos.PreguntasPOJO;
 public class StartApp{
 
 	private UsuarioController usuarioControl = new UsuarioController();
+	
+	private TemasController temasController = new TemasController();
 	
 	
 
@@ -37,16 +44,26 @@ public class StartApp{
 ////        };
 ////        runnable.run();
 //
-        UsuarioController usuarioControl = new UsuarioController();
-        Usuario u = usuarioControl.comprobarLogin("sgonzalez", "123");
+
         
-        PreguntasPOJO p = new PreguntasPOJO();
-        
-        List<TipoPregunta> bp = p.obtenerTiposActivos();
-        
-        for(TipoPregunta b : bp) {
-        	System.out.println(b.getNombre());
-        }
+//        PreguntasPOJO p = new PreguntasPOJO();
+//        
+//        List<TipoPregunta> bp = p.obtenerTiposActivos();
+//        
+//        for(TipoPregunta b : bp) {
+//        	System.out.println(b.getNombre());
+//        }
+    	
+    	UsuarioPOJO p= new UsuarioPOJO();
+    	List<Persona> persona = p.getDocentesActivos();
+    	
+    	for (int i = 0; i < persona.size(); i++) {
+			
+        	System.out.println("Docente: "+ persona.get(i));
+    		
+		}
+    	
+
         
     }
     

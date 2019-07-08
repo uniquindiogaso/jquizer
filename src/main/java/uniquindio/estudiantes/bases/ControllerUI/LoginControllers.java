@@ -3,6 +3,8 @@ package uniquindio.estudiantes.bases.ControllerUI;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +27,7 @@ import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class LoginControllers {
 
-	UsuarioController usuarioController;
+	//UsuarioController usuarioController;
 
 	@FXML
 	private TextField txtUser;
@@ -59,15 +61,28 @@ public class LoginControllers {
 			
 			Persona p = manejador.getPojo().getPersona(user);
 			
+			if(p == null) {
+				
+				JOptionPane.showMessageDialog(null, "No se encontro en la base de Datos");
+				
+			}
+			
 			if ("Propietario".equals(p.getTipo())) {
 				//propietario
 				escenario.close();
 				manejador.cargarEscenarioAdmin(user);
-			}else if ( "Profesor".equals(p.getTipo())) {
-				//profesor
 				
-			}else if ( "Alumno".equals(p.getTipo())) {
+			}else if ( "Docente".equals(p.getTipo())) {
+				//profesor
+				escenario.close();
+				manejador.cargarEscenarioDocente(user);
+				
+				
+			}else if ( "Estudiante".equals(p.getTipo())) {
 				//alumno
+				escenario.close();
+				manejador.cargarEscenarioEstudiante(user);
+				
 			}
 			
 			

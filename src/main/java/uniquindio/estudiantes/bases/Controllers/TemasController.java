@@ -20,7 +20,7 @@ public class TemasController {
     private TemasPOJO pojo;
 
     public TemasController() {
-        this.pojo = new TemasPOJO();
+       pojo = new TemasPOJO();
     }
 
     public Res insertarTema(Tema tema) {
@@ -41,6 +41,7 @@ public class TemasController {
 
     public List<Tema> obtenerTemas() {
         List<Tema> res = pojo.todosActivos();
+        System.out.println(res.size());
         return res;
     }
 

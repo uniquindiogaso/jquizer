@@ -106,6 +106,14 @@ public class Persona {
 		this.ciudad_id = ciudad_id;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return nombre;
+	}
+
 
     
 

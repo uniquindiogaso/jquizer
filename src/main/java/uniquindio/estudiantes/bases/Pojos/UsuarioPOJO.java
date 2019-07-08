@@ -42,7 +42,6 @@ public class UsuarioPOJO {
                     .addParameter("persona_id", u.getPersona_id())                    
                     .executeAndFetchFirst(Persona.class);
         }	
-    	
     }
     
     
