@@ -24,5 +24,9 @@ public class PreguntasController {
 	 public List<TipoPregunta> obtenerTiposPreguntaActivos(){
 		 return pojo.obtenerTiposActivos();
 	 }
+	 
+	 public TipoPregunta obtenerTipoPregunta(String codigo) {
+		 return pojo.obtenerTipoPregunta(codigo);
+	 }
 
 }
