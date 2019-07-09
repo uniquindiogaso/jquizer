@@ -18,7 +18,7 @@
       </Text>
       <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado" />
       <TextArea fx:id="txtEnunciado" layoutX="14.0" layoutY="76.0" prefHeight="108.0" prefWidth="379.0" />
-      <RadioButton fx:id="rbtVerdadero" layoutX="108.0" layoutY="196.0" mnemonicParsing="false" text="Verdadero">
+      <RadioButton fx:id="rbtVerdadero" layoutX="108.0" layoutY="196.0" mnemonicParsing="false" selected="true" text="Verdadero">
          <toggleGroup>
             <ToggleGroup fx:id="groupVoF" />
          </toggleGroup>

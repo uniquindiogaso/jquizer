@@ -60,6 +60,8 @@ public class SeleccionControllers {
 	private Usuario user;
 
 	private Tema tema;
+	
+	private DocenteControllers docenteControllers;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
@@ -180,5 +182,21 @@ public class SeleccionControllers {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
+	/**
+	 * @return the docenteControllers
+	 */
+	public DocenteControllers getDocenteControllers() {
+		return docenteControllers;
+	}
+
+	/**
+	 * @param docenteControllers the docenteControllers to set
+	 */
+	public void setDocenteControllers(DocenteControllers docenteControllers) {
+		this.docenteControllers = docenteControllers;
+	}
+	
+	
 
 }

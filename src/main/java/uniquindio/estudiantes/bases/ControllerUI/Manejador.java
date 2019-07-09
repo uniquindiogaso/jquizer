@@ -160,6 +160,7 @@ public class Manejador {
 			emparejar.setEscenario(stage);
 			emparejar.setManejador(this);
 			emparejar.setUser(user);
+			emparejar.setDocenteControllers(docenteControllers);
 			
 		} catch(IOException e){
 			
@@ -220,6 +221,7 @@ public class Manejador {
 			seleccion.setEscenario(stage);
 			seleccion.setManejador(this);
 			seleccion.setUser(user);
+			seleccion.setDocenteControllers(docenteControllers);
 			
 		} catch(IOException e){
 			

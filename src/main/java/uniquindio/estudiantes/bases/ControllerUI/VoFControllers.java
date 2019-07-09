@@ -42,7 +42,7 @@ public class VoFControllers {
 	private Usuario user;
 
 	private Tema tema;
-	
+
 	private DocenteControllers docenteControllers;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
@@ -52,55 +52,49 @@ public class VoFControllers {
 		String pregunta = null;
 
 		String enunciado = txtEnunciado.getText();
-		
-		if (!rbtFalso.isSelected() && !rbtVerdadero.isSelected()) {
 
-			JOptionPane.showMessageDialog(null, "Seleccione Respuesta");
+		if (rbtFalso.isSelected()) {
 
-		} else {
-			
-			if (rbtFalso.isSelected()) {
+			if (publica.isSelected()) {
 
-				if (publica.isSelected()) {
-					
-					System.out.println(enunciado);
-					System.out.println(tema.getNombre());
-					System.out.println("Publica: "+ publica.isSelected());
-					System.out.println("falso");
+				System.out.println(enunciado);
+				System.out.println(tema.getNombre());
+				System.out.println("Publica: " + publica.isSelected());
+				System.out.println("falso");
 
-				} else {
-					
-					System.out.println(enunciado);
-					System.out.println(tema.getNombre());
-					System.out.println("Publica: "+ publica.isSelected());
-					System.out.println("falso");
-				}
+			} else {
 
+				System.out.println(enunciado);
+				System.out.println(tema.getNombre());
+				System.out.println("Publica: " + publica.isSelected());
+				System.out.println("falso");
 			}
-
-			if (rbtVerdadero.isSelected()) {
-
-				if (publica.isSelected()) {
-					
-					System.out.println(enunciado);
-					System.out.println(tema.getNombre());
-					System.out.println("Publica: "+ publica.isSelected());
-					System.out.println("Verdadero");
-
-				} else {
-					
-					System.out.println(enunciado);
-					System.out.println(tema.getNombre());
-					System.out.println("Publica: "+ publica.isSelected());
-					System.out.println("Verdadero");
-				}
-
-			}
-
-			getDocenteControllers().getTablePreguntas().getItems().add(pregunta);
 
 		}
+
+		if (rbtVerdadero.isSelected()) {
+
+			if (publica.isSelected()) {
+
+				System.out.println(enunciado);
+				System.out.println(tema.getNombre());
+				System.out.println("Publica: " + publica.isSelected());
+				System.out.println("Verdadero");
+
+			} else {
+
+				System.out.println(enunciado);
+				System.out.println(tema.getNombre());
+				System.out.println("Publica: " + publica.isSelected());
+				System.out.println("Verdadero");
+			}
+
+		}
+
+		getDocenteControllers().getTablePreguntas().getItems().add(pregunta);
+
 	}
+
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 
@@ -173,7 +167,5 @@ public class VoFControllers {
 	public void setDocenteControllers(DocenteControllers docenteControllers) {
 		this.docenteControllers = docenteControllers;
 	}
-	
-	
 
 }

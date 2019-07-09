@@ -46,6 +46,8 @@ public class EmparejarControllers {
 	
 	private Tema tema;
 	
+	private DocenteControllers docenteControllers;
+	
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
@@ -106,5 +108,21 @@ public class EmparejarControllers {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
+	/**
+	 * @return the docenteControllers
+	 */
+	public DocenteControllers getDocenteControllers() {
+		return docenteControllers;
+	}
+
+	/**
+	 * @param docenteControllers the docenteControllers to set
+	 */
+	public void setDocenteControllers(DocenteControllers docenteControllers) {
+		this.docenteControllers = docenteControllers;
+	}
+	
+	
 
 }
