@@ -9,6 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
@@ -67,7 +68,6 @@ public class SeleccionControllers {
 
 	@FXML
 	void crearPregunta(ActionEvent event) {
-		String pregunta = null;
 
 		String enunciado = txtEnunciado.getText();
 		
@@ -119,9 +119,21 @@ public class SeleccionControllers {
 			System.out.println("Opcion 5: correcta "+ txtOpcion5.getText());
 			
 		}
+		
+		Pregunta pregunta = new Pregunta();
+		
+		pregunta.setCodinterno("Pregunta seleccion Prueba");
+		pregunta.setPublica(publica.isSelected());
+		pregunta.setTema_id(tema.getId());
+		pregunta.setActivo(true);
+		pregunta.setNombre(enunciado);
+		pregunta.setTiempo(20);
+		pregunta.setValor((float)20.0);
+		pregunta.setId(8);
+		pregunta.setTipo_preg_id(2);
+		
 
-
-		//getDocenteControllers().getTablePreguntas().getItems().add(pregunta);
+		getDocenteControllers().getPreguntas().add(pregunta);
 
 	}
 

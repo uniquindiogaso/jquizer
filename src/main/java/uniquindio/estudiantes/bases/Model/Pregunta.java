@@ -1,5 +1,7 @@
 package uniquindio.estudiantes.bases.Model;
 
+import java.util.List;
+
 public class Pregunta {
 
 	private int id;
@@ -12,6 +14,7 @@ public class Pregunta {
 	private int parent_id;
 	private int tiempo;
 	private Float valor;
+	private List<OpcionPregunta> opcionPreguntas;
 	
 	
 	public Pregunta() {
@@ -134,6 +137,7 @@ public class Pregunta {
 		this.valor = valor;
 	}
 
+	
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -141,6 +145,22 @@ public class Pregunta {
 	@Override
 	public String toString() {
 		return nombre;
+	}
+
+
+	/**
+	 * @return the opcionPreguntas
+	 */
+	public List<OpcionPregunta> getOpcionPreguntas() {
+		return opcionPreguntas;
+	}
+
+
+	/**
+	 * @param opcionPreguntas the opcionPreguntas to set
+	 */
+	public void setOpcionPreguntas(List<OpcionPregunta> opcionPreguntas) {
+		this.opcionPreguntas = opcionPreguntas;
 	}
 	
 	

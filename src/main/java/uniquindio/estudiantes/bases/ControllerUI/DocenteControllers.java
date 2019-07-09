@@ -220,11 +220,18 @@ public class DocenteControllers{
     	bancoPrivado.setVisible(false);
     	
     }
-	
-//	@FXML
-//	void crearEvaluacion() {
-//
-//	}
+    
+    
+    @FXML
+    void crearEvaluacion(ActionEvent event) {
+    	
+    	System.out.println("preguntas " + preguntas.size());
+    	
+    	for( Pregunta p : preguntas) {
+    		System.out.println("Pregunta p " + p.getNombre());
+    	}
+
+    }
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 

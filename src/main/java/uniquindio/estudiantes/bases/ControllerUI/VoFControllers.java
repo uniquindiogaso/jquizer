@@ -9,32 +9,43 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.OpcionPregunta;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class VoFControllers {
 
-	@FXML
-	private TextArea txtEnunciado;
+    @FXML
+    private TextArea txtEnunciado;
 
-	@FXML
-	private RadioButton rbtVerdadero;
+    @FXML
+    private RadioButton rbtVerdadero;
 
-	@FXML
-	private ToggleGroup groupVoF;
+    @FXML
+    private ToggleGroup groupVoF;
 
-	@FXML
-	private RadioButton rbtFalso;
+    @FXML
+    private RadioButton rbtFalso;
 
-	@FXML
-	private Button btnAgregar;
+    @FXML
+    private Button btnAgregar;
 
-	@FXML
-	private CheckBox publica;
+    @FXML
+    private CheckBox publica;
+
+    @FXML
+    private TextField txtTiempo;
+
+    @FXML
+    private TextField txtPeso;
+    
+    @FXML
+    private TextField txtCodigoInterno;
 
 	private Manejador manejador;
 
@@ -93,16 +104,30 @@ public class VoFControllers {
 		
 		Pregunta pregunta = new Pregunta();
 		
-		pregunta.setCodinterno("Pregunta Prueba");
+		pregunta.setCodinterno(txtCodigoInterno.getText());
 		pregunta.setPublica(publica.isSelected());
 		pregunta.setTema_id(tema.getId());
 		pregunta.setActivo(true);
 		pregunta.setNombre(enunciado);
-		pregunta.setTiempo(20);
-		pregunta.setValor((float)20.0);
-		pregunta.setId(8);
+		pregunta.setTiempo(Integer.parseInt(txtTiempo.getText()));
+		pregunta.setValor(Float.valueOf(txtPeso.getText()));
 		pregunta.setTipo_preg_id(1);
 		
+		boolean correcta = true;
+		
+		if (rbtFalso.isSelected()) {
+			correcta = false;
+		}
+		
+		if (rbtVerdadero.isSelected()) {
+			correcta = true;
+		}
+		
+		OpcionPregunta opcionPregunta = new OpcionPregunta();
+		opcionPregunta.setCorrecta(correcta);
+		
+		pregunta.getOpcionPreguntas().add(opcionPregunta);
+
 
 		getDocenteControllers().getPreguntas().add(pregunta);
 
