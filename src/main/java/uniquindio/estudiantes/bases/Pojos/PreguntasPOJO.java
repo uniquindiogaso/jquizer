@@ -31,5 +31,15 @@ public class PreguntasPOJO {
                     .executeAndFetch(TipoPregunta.class);
         }
     }
+    
+    
+    public TipoPregunta obtenerTipoPregunta(String codigo) {
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query = "select id , codinterno , nombre from tipo_preg where codinterno = :codinterno LIMIT 1";
+            return con.createQuery(query)
+            		.addParameter("codinterno", codigo)
+                    .executeAndFetchFirst(TipoPregunta.class);
+        }
+    }
 
 }
