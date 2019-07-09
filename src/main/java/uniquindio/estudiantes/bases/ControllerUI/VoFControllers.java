@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
@@ -49,49 +50,61 @@ public class VoFControllers {
 
 	@FXML
 	void crearPregunta(ActionEvent event) {
-		String pregunta = null;
 
 		String enunciado = txtEnunciado.getText();
 
-		if (rbtFalso.isSelected()) {
+//		if (rbtFalso.isSelected()) {
+//
+//			if (publica.isSelected()) {
+//
+//				System.out.println(enunciado);
+//				System.out.println(tema.getNombre());
+//				System.out.println("Publica: " + publica.isSelected());
+//				System.out.println("falso");
+//
+//			} else {
+//
+//				System.out.println(enunciado);
+//				System.out.println(tema.getNombre());
+//				System.out.println("Publica: " + publica.isSelected());
+//				System.out.println("falso");
+//			}
+//
+//		}
+//
+//		if (rbtVerdadero.isSelected()) {
+//
+//			if (publica.isSelected()) {
+//
+//				System.out.println(enunciado);
+//				System.out.println(tema.getNombre());
+//				System.out.println("Publica: " + publica.isSelected());
+//				System.out.println("Verdadero");
+//
+//			} else {
+//
+//				System.out.println(enunciado);
+//				System.out.println(tema.getNombre());
+//				System.out.println("Publica: " + publica.isSelected());
+//				System.out.println("Verdadero");
+//			}
+//
+//		}
+		
+		Pregunta pregunta = new Pregunta();
+		
+		pregunta.setCodinterno("Pregunta Prueba");
+		pregunta.setPublica(publica.isSelected());
+		pregunta.setTema_id(tema.getId());
+		pregunta.setActivo(true);
+		pregunta.setNombre(enunciado);
+		pregunta.setTiempo(20);
+		pregunta.setValor((float)20.0);
+		pregunta.setId(8);
+		pregunta.setTipo_preg_id(1);
+		
 
-			if (publica.isSelected()) {
-
-				System.out.println(enunciado);
-				System.out.println(tema.getNombre());
-				System.out.println("Publica: " + publica.isSelected());
-				System.out.println("falso");
-
-			} else {
-
-				System.out.println(enunciado);
-				System.out.println(tema.getNombre());
-				System.out.println("Publica: " + publica.isSelected());
-				System.out.println("falso");
-			}
-
-		}
-
-		if (rbtVerdadero.isSelected()) {
-
-			if (publica.isSelected()) {
-
-				System.out.println(enunciado);
-				System.out.println(tema.getNombre());
-				System.out.println("Publica: " + publica.isSelected());
-				System.out.println("Verdadero");
-
-			} else {
-
-				System.out.println(enunciado);
-				System.out.println(tema.getNombre());
-				System.out.println("Publica: " + publica.isSelected());
-				System.out.println("Verdadero");
-			}
-
-		}
-
-		getDocenteControllers().getTablePreguntas().getItems().add(pregunta);
+		getDocenteControllers().getPreguntas().add(pregunta);
 
 	}
 

@@ -90,7 +90,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Button fx:id="btnAgregar" layoutX="472.0" layoutY="223.0" mnemonicParsing="false" text="Agregar" />
+                        <Button fx:id="btnAgregar" layoutX="472.0" layoutY="223.0" mnemonicParsing="false" onAction="#cargarPreguntas" text="Agregar" />
                         <Button layoutX="166.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarVoF" text="Verdadero o falso" />
                         <Button layoutX="325.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarEmparejar" text="Emparejar" />
                         <Button layoutX="428.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarSeleccionar" text="Seleccion Multiple" />

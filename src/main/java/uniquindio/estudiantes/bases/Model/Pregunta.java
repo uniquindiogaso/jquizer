@@ -133,6 +133,15 @@ public class Pregunta {
 	public void setValor(Float valor) {
 		this.valor = valor;
 	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return nombre;
+	}
 	
 	
 	

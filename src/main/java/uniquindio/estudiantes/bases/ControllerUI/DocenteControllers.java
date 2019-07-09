@@ -18,12 +18,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
 
 import uniquindio.estudiantes.bases.Model.Persona;
+import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
@@ -60,22 +62,22 @@ public class DocenteControllers{
 	    private Button btnAgregar;
 
 	    @FXML
-	    private TableView<String> tablePreguntas;
+	    private TableView<Pregunta> tablePreguntas;
 
 	    @FXML
-	    private TableColumn<?, ?> columCodigo;
+	    private TableColumn<Pregunta, Integer> columCodigo;
 
 	    @FXML
-	    private TableColumn<?, ?> columNombre;
+	    private TableColumn<Pregunta, String> columNombre;
 
 	    @FXML
-	    private TableColumn<?, ?> columPublica;
+	    private TableColumn<Pregunta, Boolean> columPublica;
 
 	    @FXML
-	    private TableColumn<?, ?> columValor;
+	    private TableColumn<Pregunta, Float> columValor;
 
 	    @FXML
-	    private TableColumn<?, ?> columTiempo;
+	    private TableColumn<Pregunta, Integer> columTiempo;
 
 	    @FXML
 	    private AnchorPane bancoPublico;
@@ -109,6 +111,8 @@ public class DocenteControllers{
 
 	    @FXML
 	    private TableView<?> tableReporteCurso;
+	    
+	    ObservableList<Pregunta> preguntas = FXCollections.observableArrayList();
 
 	private Manejador manejador;
 
@@ -143,7 +147,7 @@ public class DocenteControllers{
 
 		} catch (Exception e) {
 			// TODO: handle exception
-e.printStackTrace();
+			e.printStackTrace();
 			System.out.println("no ttt carga " + e.getMessage());
 
 			e.getStackTrace();
@@ -152,27 +156,29 @@ e.printStackTrace();
 
 	}
 
-//	@FXML
-//	void cargarDocentes() {
-//
-//		try {
-//
-//			ObservableList<Persona> personas = FXCollections.observableArrayList();
-//
-//			personas.addAll(manejador.getPojo().getDocentes());
-//			comboDocente.getItems().addAll(personas);;
-//
-//
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//
-//			System.out.println("no carga " + e.getMessage());
-//
-//			e.getStackTrace();
-//
-//		}
-//
-//	}
+    @FXML
+    void  cargarPreguntas() {
+    	
+		try {
+
+			tablePreguntas.setItems(preguntas);
+			columCodigo.setCellValueFactory(new PropertyValueFactory<Pregunta, Integer>("id"));
+			columNombre.setCellValueFactory(new PropertyValueFactory<Pregunta, String>("nombre"));
+			columPublica.setCellValueFactory(new PropertyValueFactory<Pregunta, Boolean>("publica"));
+			columTiempo.setCellValueFactory(new PropertyValueFactory<Pregunta, Integer>("tiempo"));
+			columValor.setCellValueFactory(new PropertyValueFactory<Pregunta, Float>("valor"));
+			
+			
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("no carga " + e.getMessage());
+
+			e.getStackTrace();
+
+		}
+	}
 
 	@FXML
 	void cargarEmparejar(ActionEvent event) {
@@ -269,7 +275,7 @@ e.printStackTrace();
 	/**
 	 * @return the tablePreguntas
 	 */
-	public TableView<String> getTablePreguntas() {
+	public TableView<Pregunta> getTablePreguntas() {
 		return tablePreguntas;
 	}
 
@@ -277,8 +283,22 @@ e.printStackTrace();
 	/**
 	 * @param tablePreguntas the tablePreguntas to set
 	 */
-	public void setTablePreguntas(TableView<String> tablePreguntas) {
+	public void setTablePreguntas(TableView<Pregunta> tablePreguntas) {
 		this.tablePreguntas = tablePreguntas;
+	}
+
+	/**
+	 * @return the preguntas
+	 */
+	public ObservableList<Pregunta> getPreguntas() {
+		return preguntas;
+	}
+
+	/**
+	 * @param preguntas the preguntas to set
+	 */
+	public void setPreguntas(ObservableList<Pregunta> preguntas) {
+		this.preguntas = preguntas;
 	}
 
 	
