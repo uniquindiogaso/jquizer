@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.ControllerUI.EmparejarControllers">
+   <children>
+      <Text layoutX="213.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta Emparejar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtopcion1" layoutX="107.0" layoutY="88.0" promptText="Opcion 1" />
+      <TextField fx:id="txtPareja1" layoutX="329.0" layoutY="88.0" promptText="Pareja Opcion 1" />
+      <TextField fx:id="txtopcion2" layoutX="107.0" layoutY="136.0" promptText="Opcion 2" />
+      <TextField fx:id="txtPareja2" layoutX="329.0" layoutY="136.0" promptText="Pareja Opcion 2" />
+      <TextField fx:id="txtopcion3" layoutX="107.0" layoutY="182.0" promptText="Opcion 3" />
+      <TextField fx:id="txtopcion4" layoutX="107.0" layoutY="229.0" promptText="Opcion 4" />
+      <TextField fx:id="txtopcion5" layoutX="107.0" layoutY="272.0" promptText="Opcion 5" />
+      <TextField fx:id="txtPareja3" layoutX="329.0" layoutY="182.0" promptText="Pareja Opcion 3" />
+      <TextField fx:id="txtPareja4" layoutX="329.0" layoutY="229.0" promptText="Pareja Opcion 4" />
+      <TextField fx:id="txtPareja5" layoutX="329.0" layoutY="272.0" promptText="Pareja Opcion 5" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" text="Agregar" />
+      <CheckBox fx:id="publica" layoutX="245.0" layoutY="318.0" mnemonicParsing="false" text="Pregunta Publica" />
+   </children>
+</AnchorPane>

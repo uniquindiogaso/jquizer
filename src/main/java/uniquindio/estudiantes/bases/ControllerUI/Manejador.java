@@ -24,16 +24,19 @@ public class Manejador {
 	private TemasController temasController;
 	
 	private TemasPOJO temasPOJO;
+	
+	private DocenteControllers docenteControllers;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 	
 	public Manejador (Stage escenario){
 		
-		this.escenario = escenario;
-		usercontroller = new UsuarioController();
+		this.escenario  = escenario;
+		usercontroller  = new UsuarioController();
+		temasController = new TemasController();
+		temasController = new TemasController();
+		
 		cargarEscenarioLogin();
-		temasController = new TemasController();
-		temasController = new TemasController();
 		
 	}
 	
@@ -75,6 +78,7 @@ public class Manejador {
 			stage.show();
 			
 			DocenteControllers docente = loader.getController();
+			docenteControllers = docente;
 			docente.setEscenario(stage);
 			docente.setManejador(this);
 			docente.setUser(usuario);
@@ -136,6 +140,95 @@ public class Manejador {
 		}
 	}
 	
+	public void cargarEscenarioEmparejar(Usuario user, Tema tema) {
+		
+		System.out.println(tema.getNombre());
+		System.out.println(user.getUsername());
+		
+		try {
+			
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/Emparejar.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			EmparejarControllers emparejar = loader.getController();
+			emparejar.setEscenario(stage);
+			emparejar.setManejador(this);
+			emparejar.setUser(user);
+			
+		} catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	public void cargarEscenarioVoF(Usuario user, Tema tema) {
+		
+		System.out.println(tema.getNombre());
+		System.out.println(user.getUsername());
+		
+		try {
+			
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/PreguntaVoF.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			VoFControllers vof = loader.getController();
+			vof.setDocenteControllers(docenteControllers);
+			vof.setEscenario(stage);
+			vof.setManejador(this);
+			vof.setUser(user);
+			vof.setTema(tema);
+			
+		} catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	public void cargarEscenarioSeleccionar(Usuario user, Tema tema) {
+		
+		System.out.println(tema.getNombre());
+		System.out.println(user.getUsername());
+		
+		try {
+			
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/SeleccionMultiple.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			SeleccionControllers seleccion = loader.getController();
+			seleccion.setEscenario(stage);
+			seleccion.setManejador(this);
+			seleccion.setUser(user);
+			
+		} catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
 	
 	
 	
@@ -173,6 +266,8 @@ public class Manejador {
 	public void setTemasPOJO(TemasPOJO temasPOJO) {
 		this.temasPOJO = temasPOJO;
 	}
+
+
 
 
 

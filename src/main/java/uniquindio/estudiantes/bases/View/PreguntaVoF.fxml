@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.ControllerUI.VoFControllers">
+   <children>
+      <Text layoutX="87.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Falso o Verdadero">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado" />
+      <TextArea fx:id="txtEnunciado" layoutX="14.0" layoutY="76.0" prefHeight="108.0" prefWidth="379.0" />
+      <RadioButton fx:id="rbtVerdadero" layoutX="108.0" layoutY="196.0" mnemonicParsing="false" text="Verdadero">
+         <toggleGroup>
+            <ToggleGroup fx:id="groupVoF" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbtFalso" layoutX="228.0" layoutY="196.0" mnemonicParsing="false" text="Falso" toggleGroup="$groupVoF" />
+      <Button fx:id="btnAgregar" layoutX="338.0" layoutY="248.0" mnemonicParsing="false" onAction="#crearPregunta" text="Agregar" />
+      <CheckBox fx:id="publica" layoutX="150.0" layoutY="231.0" mnemonicParsing="false" text="Pregunta Publica" />
+   </children>
+</AnchorPane>

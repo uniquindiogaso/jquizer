@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.ControllerUI.SeleccionControllers">
+   <children>
+      <Text layoutX="163.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Seleccion Multiple">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado" />
+      <TextArea fx:id="txtEnunciado" layoutX="14.0" layoutY="71.0" prefHeight="53.0" prefWidth="571.0" />
+      <CheckBox fx:id="check1" layoutX="209.0" layoutY="138.0" mnemonicParsing="false" />
+      <TextField fx:id="txtOpcion1" layoutX="244.0" layoutY="134.0" promptText="Opcion 1" />
+      <TextField fx:id="txtOpcion2" layoutX="244.0" layoutY="166.0" promptText="Opcion 2" />
+      <TextField fx:id="txtOpcion3" layoutX="244.0" layoutY="201.0" promptText="Opcion 3" />
+      <TextField fx:id="txtOpcion4" layoutX="244.0" layoutY="240.0" promptText="Opcion 4" />
+      <TextField fx:id="txtOpcion5" layoutX="244.0" layoutY="277.0" promptText="Opcion 5" />
+      <CheckBox fx:id="check2" layoutX="208.0" layoutY="170.0" mnemonicParsing="false" />
+      <CheckBox fx:id="check3" layoutX="208.0" layoutY="205.0" mnemonicParsing="false" />
+      <CheckBox fx:id="check4" layoutX="208.0" layoutY="244.0" mnemonicParsing="false" />
+      <CheckBox fx:id="check5" layoutX="208.0" layoutY="281.0" mnemonicParsing="false" />
+      <CheckBox fx:id="publica" layoutX="263.0" layoutY="322.0" mnemonicParsing="false" text="Pregunta Publica" />
+      <Button fx:id="btnAgregar" layoutX="524.0" layoutY="355.0" mnemonicParsing="false" onAction="#crearPregunta" text="Agregar" />
+   </children>
+</AnchorPane>

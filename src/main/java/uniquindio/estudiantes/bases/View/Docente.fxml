@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
@@ -32,12 +31,12 @@
                            </font>
                         </Text>
                         <TextField fx:id="txtNombreE" layoutX="96.0" layoutY="18.0" promptText="Ingrese Nombre" />
-                        <Text layoutX="14.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion de la Evaluacion">
+                        <Text layoutX="16.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion de la Evaluacion">
                            <font>
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <TextArea fx:id="txtDescripcion" layoutX="9.0" layoutY="93.0" prefHeight="63.0" prefWidth="666.0" promptText="Ingrese descripcion de la evaluacion" />
+                        <TextArea fx:id="txtDescripcion" layoutX="13.0" layoutY="73.0" prefHeight="63.0" prefWidth="666.0" promptText="Ingrese descripcion de la evaluacion" />
                         <RadioButton layoutX="393.0" layoutY="23.0" mnemonicParsing="false" text="Quiz">
                            <toggleGroup>
                               <ToggleGroup fx:id="grupoEvaluacion" />
@@ -56,174 +55,68 @@
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="39.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
+                        <Text layoutX="15.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
                            <font>
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <DatePicker fx:id="PickFechaI" layoutX="146.0" layoutY="179.0" promptText="Fecha inicio" />
-                        <DatePicker fx:id="PickFechaF" layoutX="462.0" layoutY="179.0" promptText="Fecha Fin" />
-                        <Text layoutX="363.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
+                        <DatePicker fx:id="PickFechaI" layoutX="115.0" layoutY="145.0" promptText="Fecha inicio" />
+                        <DatePicker fx:id="PickFechaF" layoutX="379.0" layoutY="145.0" promptText="Fecha Fin" />
+                        <Text layoutX="301.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
                            <font>
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="60.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duracion">
+                        <Text layoutX="16.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duracion">
                            <font>
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="txtDuracion" layoutX="146.0" layoutY="222.0" promptText="Duracion En Minutos" />
-                        <Text layoutX="383.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado">
-                           <font>
-                              <Font name="Verdana Italic" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="62.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Docente">
-                           <font>
-                              <Font name="Verdana Italic" size="15.0" />
-                           </font>
-                        </Text>
-                        <ComboBox fx:id="comboDocente" layoutX="146.0" layoutY="263.0" onAction="#cargarDocentes" onMouseClicked="#cargarDocentes" prefWidth="150.0" promptText="Docente" />
-                        <ComboBox fx:id="comoboEstadoE" layoutX="466.0" layoutY="223.0" prefWidth="150.0" promptText="Estado del examen" />
-                        <Text layoutX="38.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas del Banco">
-                           <font>
-                              <Font name="Verdana Italic" size="15.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="txtPreguntasBanco" layoutX="257.0" layoutY="315.0" prefHeight="21.0" prefWidth="39.0" />
-                        <Text layoutX="346.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas de la evaluacion">
-                           <font>
-                              <Font name="Verdana Italic" size="15.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="txtPreguntasEvaluacion" layoutX="589.0" layoutY="315.0" prefHeight="16.0" prefWidth="40.0" />
-                        <Button fx:id="btnCrearEvaluacion" layoutX="604.0" layoutY="374.0" mnemonicParsing="false" text="Crear">
+                        <TextField fx:id="txtDuracion" layoutX="96.0" layoutY="186.0" promptText="Duracion En Minutos" />
+                        <Button fx:id="btnCrearEvaluacion" layoutX="618.0" layoutY="537.0" mnemonicParsing="false" text="Crear">
                            <font>
                               <Font name="Verdana Bold Italic" size="15.0" />
                            </font>
                         </Button>
-                        <Text layoutX="378.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema">
+                        <Text layoutX="325.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema">
                            <font>
                               <Font name="Verdana Italic" size="15.0" />
                            </font>
                         </Text>
-                        <ComboBox fx:id="comboTemas2" layoutX="466.0" layoutY="263.0" onAction="#cargarTemas" onMouseClicked="#cargarTemas" prefWidth="150.0" promptText="Tema" />
+                        <ComboBox fx:id="comboTemas2" layoutX="398.0" layoutY="186.0" prefWidth="150.0" promptText="Tema" />
+                        <ComboBox fx:id="comboPBanco" layoutX="288.0" layoutY="223.0" prefWidth="150.0" />
+                        <Text layoutX="143.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta del banco">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btnAgregar" layoutX="472.0" layoutY="223.0" mnemonicParsing="false" text="Agregar" />
+                        <Button layoutX="166.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarVoF" text="Verdadero o falso" />
+                        <Button layoutX="325.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarEmparejar" text="Emparejar" />
+                        <Button layoutX="428.0" layoutY="266.0" mnemonicParsing="false" onAction="#cargarSeleccionar" text="Seleccion Multiple" />
+                        <TableView fx:id="tablePreguntas" layoutX="15.0" layoutY="323.0" prefHeight="203.0" prefWidth="661.0">
+                          <columns>
+                            <TableColumn fx:id="columCodigo" prefWidth="75.0" text="Codigo" />
+                            <TableColumn fx:id="columNombre" prefWidth="163.0" text="Nombre" />
+                              <TableColumn fx:id="columPublica" prefWidth="139.0" text="Publica" />
+                              <TableColumn fx:id="columValor" prefWidth="136.0" text="Valor" />
+                              <TableColumn fx:id="columTiempo" prefWidth="147.0" text="Tiempo" />
+                          </columns>
+                        </TableView>
+                        <Text layoutX="16.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="19.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar Preguntas ">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Crear Preguntas">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.21287128712871287" layoutX="8.0" layoutY="6.0" prefHeight="568.0" prefWidth="677.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="138.0">
-                                 <children>
-                                    <Text layoutX="3.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Pregunta" />
-                                    <Hyperlink layoutX="3.0" layoutY="23.0" prefHeight="22.0" prefWidth="125.0" text="Emparejar" />
-                                    <Hyperlink layoutY="46.0" prefHeight="23.0" prefWidth="126.0" text="Verdadero o Falso" />
-                                    <Hyperlink layoutY="69.0" prefHeight="22.0" prefWidth="126.0" text="Seleccion Multiple" />
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="452.0">
-                                 <children>
-                                    <AnchorPane layoutY="-1.0" prefHeight="560.0" prefWidth="526.0" visible="false">
-                                       <children>
-                                          <Text layoutX="85.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Verdadero o Falso">
-                                             <font>
-                                                <Font name="Verdana Italic" size="20.0" />
-                                             </font>
-                                          </Text>
-                                          <Text layoutX="22.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado">
-                                             <font>
-                                                <Font name="Verdana Italic" size="16.0" />
-                                             </font>
-                                          </Text>
-                                          <TextArea fx:id="txtEnunciadoFV" layoutX="14.0" layoutY="139.0" prefHeight="77.0" prefWidth="506.0" promptText="Enunciado de la pregunta" />
-                                          <RadioButton fx:id="rbtVerdadero" layoutX="14.0" layoutY="227.0" mnemonicParsing="false" text="Verdadero">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="grupoRespuesta" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="rbtFalso" layoutX="105.0" layoutY="227.0" mnemonicParsing="false" text="Falso" toggleGroup="$grupoRespuesta" />
-                                          <Text layoutX="52.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema">
-                                             <font>
-                                                <Font name="Verdana Italic" size="16.0" />
-                                             </font>
-                                          </Text>
-                                          <ComboBox fx:id="comboTemas" layoutX="242.0" layoutY="52.0" prefWidth="150.0" promptText="Elija Tema" />
-                                          <CheckBox fx:id="checkPublicaVoF" layoutX="215.0" layoutY="92.0" mnemonicParsing="false" text="Pregunta Publica" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="564.0" prefWidth="527.0" visible="false">
-                                       <children>
-                                          <Text layoutX="83.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Seleccion Multiple">
-                                             <font>
-                                                <Font name="Verdana Italic" size="20.0" />
-                                             </font>
-                                          </Text>
-                                          <Text layoutX="20.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado">
-                                             <font>
-                                                <Font name="Verdana Italic" size="15.0" />
-                                             </font>
-                                          </Text>
-                                          <TextArea fx:id="txtEnunciadoSeleccion" layoutX="13.0" layoutY="152.0" prefHeight="56.0" prefWidth="507.0" promptText="Enunciado de la pregunta" />
-                                          <RadioButton layoutX="14.0" layoutY="216.0" mnemonicParsing="false" text="Opcion" />
-                                          <RadioButton layoutX="14.0" layoutY="240.0" mnemonicParsing="false" text="Opcion" />
-                                          <RadioButton layoutX="14.0" layoutY="265.0" mnemonicParsing="false" text="Opcion" />
-                                          <Button layoutX="454.0" layoutY="525.0" mnemonicParsing="false" text="Agregar" />
-                                          <Button layoutX="13.0" layoutY="525.0" mnemonicParsing="false" text="Añadir opcion" />
-                                          <Button layoutX="142.0" layoutY="525.0" mnemonicParsing="false" text="Eliminar Opcion" />
-                                          <Text layoutX="147.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema">
-                                             <font>
-                                                <Font name="Verdana Italic" size="16.0" />
-                                             </font>
-                                          </Text>
-                                          <ComboBox fx:id="comboTemas" layoutX="220.0" layoutY="48.0" prefWidth="150.0" promptText="Elija Tema" />
-                                          <CheckBox fx:id="checkPublica" layoutX="208.0" layoutY="89.0" mnemonicParsing="false" text="Pregunta Publica" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="3.0" layoutY="1.0" prefHeight="560.0" prefWidth="523.0">
-                                       <children>
-                                          <Text layoutX="120.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Emparejar">
-                                             <font>
-                                                <Font name="Verdana Italic" size="20.0" />
-                                             </font>
-                                          </Text>
-                                          <Text layoutX="20.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado">
-                                             <font>
-                                                <Font name="Verdana Italic" size="16.0" />
-                                             </font>
-                                          </Text>
-                                          <TextArea fx:id="txtEnunciadoEmparejar" layoutX="16.0" layoutY="159.0" prefHeight="62.0" prefWidth="492.0" promptText="Ingrese Enunciado de la pregunta" />
-                                          <TextField layoutX="15.0" layoutY="231.0" promptText="Opcion 1" />
-                                          <TextField layoutX="309.0" layoutY="231.0" promptText="Pareja Opcion 1" />
-                                          <TextField layoutX="15.0" layoutY="276.0" promptText="Opcion 2" />
-                                          <TextField layoutX="309.0" layoutY="276.0" promptText="Pareja Opcion 2" />
-                                          <TextField layoutX="15.0" layoutY="318.0" promptText="Opcion 3" />
-                                          <TextField layoutX="309.0" layoutY="318.0" promptText="Pareja Opcion 3" />
-                                          <Button fx:id="btnAgregar" layoutX="450.0" layoutY="521.0" mnemonicParsing="false" text="Agregar" />
-                                          <Button layoutX="14.0" layoutY="521.0" mnemonicParsing="false" text="Añadir Opcion" />
-                                          <Button layoutX="120.0" layoutY="521.0" mnemonicParsing="false" text="Eliminar Opcion" />
-                                          <Text layoutX="140.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tema">
-                                             <font>
-                                                <Font name="Verdana Italic" size="16.0" />
-                                             </font>
-                                          </Text>
-                                          <ComboBox fx:id="comboTemas" layoutX="229.0" layoutY="58.0" onAction="#cargarTemas" prefWidth="150.0" promptText="Elija Tema" />
-                                          <CheckBox fx:id="checkPublicaE" layoutX="206.0" layoutY="97.0" mnemonicParsing="false" text="Pregunta Publica" />
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
             <Tab text="Consultar Bancos ">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -232,13 +125,13 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="21.0" prefWidth="603.0">
                                  <children>
-                                    <Hyperlink layoutX="14.0" layoutY="3.0" text="Banco Publico" />
-                                    <Hyperlink layoutX="112.0" layoutY="3.0" text="Banco Privado" />
+                                    <Hyperlink layoutX="14.0" layoutY="3.0" onAction="#mostrarBancoPublico" text="Banco Publico" />
+                                    <Hyperlink layoutX="112.0" layoutY="3.0" onAction="#mostrarBancoPrivado" text="Banco Privado" />
                                  </children>
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="530.0" prefWidth="669.0">
                                  <children>
-                                    <AnchorPane layoutX="5.0" layoutY="2.0" prefHeight="507.0" prefWidth="679.0">
+                                    <AnchorPane fx:id="bancoPublico" layoutX="5.0" layoutY="2.0" prefHeight="507.0" prefWidth="679.0">
                                        <children>
                                           <TableView fx:id="tableBancoPublico" layoutX="14.0" layoutY="52.0" prefHeight="414.0" prefWidth="655.0">
                                             <columns>
@@ -249,10 +142,10 @@
                                             </columns>
                                           </TableView>
                                           <Button layoutX="607.0" layoutY="468.0" mnemonicParsing="false" text="Mostrar" />
-                                          <ComboBox fx:id="comboTemas1" layoutX="256.0" layoutY="14.0" onAction="#cargarTemas" prefWidth="150.0" promptText="Tema" />
+                                          <ComboBox fx:id="comboTemas1" layoutX="256.0" layoutY="14.0" prefWidth="150.0" promptText="Tema" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="518.0" prefWidth="674.0" visible="false">
+                                    <AnchorPane fx:id="bancoPrivado" layoutX="7.0" layoutY="7.0" prefHeight="518.0" prefWidth="674.0" visible="false">
                                        <children>
                                           <TableView fx:id="tableBancoPrivado" layoutX="6.0" layoutY="52.0" prefHeight="401.0" prefWidth="658.0">
                                             <columns>
@@ -263,7 +156,7 @@
                                             </columns>
                                           </TableView>
                                           <Button layoutX="602.0" layoutY="469.0" mnemonicParsing="false" text="Mostrar" />
-                                          <ComboBox layoutX="241.0" layoutY="14.0" prefWidth="150.0" promptText="Tema" />
+                                          <ComboBox fx:id="comboTemas" layoutX="241.0" layoutY="14.0" prefWidth="150.0" promptText="Tema" />
                                        </children>
                                     </AnchorPane>
                                  </children>

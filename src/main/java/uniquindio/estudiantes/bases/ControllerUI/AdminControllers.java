@@ -1,92 +1,128 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.sun.glass.events.MouseEvent;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.Persona;
+import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
-public class AdminControllers {
+public class AdminControllers implements Initializable {
 	
-    @FXML
-    private TextField txtNombre;
+	   @FXML
+	    private TextField txtNombreD;
 
-    @FXML
-    private TextField txtApellido;
+	    @FXML
+	    private TextField txtApellidoD;
 
-    @FXML
-    private TextField txtDocumento;
+	    @FXML
+	    private TextField txtDocumentoD;
 
-    @FXML
-    private TextField txtEmail;
+	    @FXML
+	    private TextField txtEmailD;
 
-    @FXML
-    private ComboBox<?> comboGrupoD;
+	    @FXML
+	    private ComboBox<?> comboCiudadD;
 
-    @FXML
-    private ComboBox<?> comboCiudad;
+	    @FXML
+	    private TextField txtTelefonoD;
 
-    @FXML
-    private TextField txtTelefono;
+	    @FXML
+	    private Button btnRegistrarD;
 
-    @FXML
-    private TextField txtNombre1;
+	    @FXML
+	    private TextField txtNombreE;
 
-    @FXML
-    private TextField txtApellido1;
+	    @FXML
+	    private TextField txtApellidoE;
 
-    @FXML
-    private TextField txtDocumento1;
+	    @FXML
+	    private TextField txtDocumentoE;
 
-    @FXML
-    private TextField txtEmail1;
+	    @FXML
+	    private TextField txtEmailE;
 
-    @FXML
-    private ComboBox<?> comboCursoE;
+	    @FXML
+	    private ComboBox<?> comboCiudadE;
 
-    @FXML
-    private ComboBox<?> comboCiudad1;
+	    @FXML
+	    private TextField txtTelefonoE;
 
-    @FXML
-    private TextField txtTelefono1;
+	    @FXML
+	    private Button btnRegistrarA;
 
-    @FXML
-    private TextField txtNombreCurso;
+	    @FXML
+	    private TextField txtNombreCurso;
 
-    @FXML
-    private TextField txtIntensidad;
+	    @FXML
+	    private TextField txtIntensidadCurso;
 
-    @FXML
-    private TextArea txtDescripcionCurso;
+	    @FXML
+	    private TextArea txtDescripcionCurso;
 
-    @FXML
-    private ComboBox<?> comboEstado;
+	    @FXML
+	    private ComboBox<?> comboEstadoCurso;
 
-    @FXML
-    private TextField txtIdCurso;
+	    @FXML
+	    private TextField txtIdCurso;
 
-    @FXML
-    private Button btnAgregarCurso;
+	    @FXML
+	    private Button btnAgregarCurso;
 
-    @FXML
-    private TextField txtNombreGrupo;
+	    @FXML
+	    private TableView<Persona> tableDocente;
 
-    @FXML
-    private TextField txtAñoGrupo;
+	    @FXML
+	    private TableColumn<Persona, String> columNombreDocente;
 
-    @FXML
-    private TextField txtIdGrupo;
+	    @FXML
+	    private TableColumn<Persona, Integer> columCodigoDocente;
 
-    @FXML
-    private TextField txtCodInternoGrupo;
+	    @FXML
+	    private TextField txtNombreGrupo;
 
-    @FXML
-    private ComboBox<?> comboCursos;
+	    @FXML
+	    private TextField txtAñoGrupo;
 
-    @FXML
-    private Button btnAgregarGrupo;
+	    @FXML
+	    private TextField txtIdGrupo;
+
+	    @FXML
+	    private TextField txtCodInternoGrupo;
+
+	    @FXML
+	    private ComboBox<?> comboCursos;
+
+	    @FXML
+	    private Button btnAgregarGrupo;
+
+	    @FXML
+	    private TableView<Persona> tableEstudiante;
+
+	    @FXML
+	    private TableColumn<Persona, String> columNombreEstudiante;
+
+	    @FXML
+	    private TableColumn<Persona, Integer> columCodigoEstudiante;
+	    
+	    @FXML
+	private Tab tabCursos;
     
 	private Manejador manejador;
 	
@@ -95,6 +131,77 @@ public class AdminControllers {
 	private Usuario user;
 	
 //-----------------------------------------Metodos------------------------------------------------------------------------
+
+	public AdminControllers() {
+	
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		cargarDocentes();
+		cargarEstudiantes();
+		
+	}
+	
+    @FXML
+    void  cargarDocentes() {
+    	
+		try {
+
+			ObservableList<Persona> docentes = FXCollections.observableArrayList();
+			
+			for (int i = 0; i < docentes.size(); i++) {
+				System.out.println(docentes.get(i).getNombre());
+			}
+
+			docentes.addAll(manejador.getPojo().getDocentes());
+			
+			tableDocente.setItems(docentes);
+			columNombreDocente.setCellValueFactory(new PropertyValueFactory<Persona, String>("nombre"));
+			columCodigoDocente.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("id"));
+			
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("no carga " + e.getMessage());
+
+			e.getStackTrace();
+
+		}
+	}
+    
+    @FXML
+    void  cargarEstudiantes() {
+    	
+		try {
+
+			ObservableList<Persona> estudiantes = FXCollections.observableArrayList();
+			
+			for (int i = 0; i < estudiantes.size(); i++) {
+				System.out.println(estudiantes.get(i).getNombre());
+			}
+
+			estudiantes.addAll(manejador.getPojo().getDocentes());
+			
+			tableEstudiante.setItems(estudiantes);
+			columNombreEstudiante.setCellValueFactory(new PropertyValueFactory<Persona, String>("nombre"));
+			columCodigoEstudiante.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("id"));
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("no carga " + e.getMessage());
+
+			e.getStackTrace();
+
+		}
+	}
+
+	@FXML
+	void registrarDocente() {}
+
+
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 

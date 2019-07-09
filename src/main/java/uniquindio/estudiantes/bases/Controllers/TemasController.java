@@ -41,7 +41,6 @@ public class TemasController {
 
     public List<Tema> obtenerTemas() {
         List<Tema> res = pojo.todosActivos();
-        System.out.println(res.size());
         return res;
     }
 
