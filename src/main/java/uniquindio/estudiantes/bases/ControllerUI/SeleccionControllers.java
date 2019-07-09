@@ -1,5 +1,8 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import javafx.event.ActionEvent;
@@ -9,6 +12,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.OpcionPregunta;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
@@ -53,6 +57,15 @@ public class SeleccionControllers {
 
 	@FXML
 	private Button btnAgregar;
+	
+    @FXML
+    private TextField txtDuracion;
+
+    @FXML
+    private TextField txtPeso;
+
+    @FXML
+    private TextField txtCodigoInterno;
 
 	private Manejador manejador;
 
@@ -68,70 +81,72 @@ public class SeleccionControllers {
 
 	@FXML
 	void crearPregunta(ActionEvent event) {
-
-		String enunciado = txtEnunciado.getText();
-		
-		System.out.println(enunciado);
-
-		if (!check1.isSelected() && !check2.isSelected() && !check3.isSelected() && !check4.isSelected()
-				&& !check5.isSelected()) {
-
-			JOptionPane.showMessageDialog(null, "Seleccione Respuesta");
-
-		}
-
-		if (publica.isSelected()) {
-
-			System.out.println("publica: " + publica.isSelected());
-
-		} else if (!publica.isSelected()) {
-
-			System.out.println("publica: " + publica.isSelected());
-
-		}
-
-		if (check1.isSelected()) {
-			
-			System.out.println("Opcion 1: correcta "+ txtOpcion1.getText());
-			
-		}
-		
-		if (check2.isSelected()) {
-			
-			System.out.println("Opcion 2: correcta "+ txtOpcion2.getText());
-			
-		}
-		
-		if (check3.isSelected()) {
-			
-			System.out.println("Opcion 3: correcta "+ txtOpcion3.getText());
-			
-		}
-		
-		if (check4.isSelected()) {
-			
-			System.out.println("Opcion 4: correcta "+ txtOpcion4.getText());
-			
-		}
-		
-		if (check5.isSelected()) {
-			
-			System.out.println("Opcion 5: correcta "+ txtOpcion5.getText());
-			
-		}
 		
 		Pregunta pregunta = new Pregunta();
+		List<OpcionPregunta> opciones = new ArrayList<>();
 		
-		pregunta.setCodinterno("Pregunta seleccion Prueba");
+		pregunta.setCodinterno(txtCodigoInterno.getText());
 		pregunta.setPublica(publica.isSelected());
 		pregunta.setTema_id(tema.getId());
 		pregunta.setActivo(true);
-		pregunta.setNombre(enunciado);
-		pregunta.setTiempo(20);
-		pregunta.setValor((float)20.0);
-		pregunta.setId(8);
-		pregunta.setTipo_preg_id(2);
+		pregunta.setNombre(txtEnunciado.getText());
+		pregunta.setTiempo(Integer.parseInt(txtDuracion.getText()));
+		pregunta.setValor(Float.valueOf(txtPeso.getText()));
+		pregunta.setTipo_preg_id(3);
 		
+		
+		
+		if (!txtOpcion1.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta1 = new OpcionPregunta();
+			opcionPregunta1.setCorrecta(check1.isSelected());
+			opcionPregunta1.setDescripcion(txtOpcion1.getText());
+
+			opciones.add(opcionPregunta1);
+			
+		}
+		
+		if (!txtOpcion2.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta2 = new OpcionPregunta();
+			opcionPregunta2.setCorrecta(check2.isSelected());
+			opcionPregunta2.setDescripcion(txtOpcion2.getText());
+			
+			opciones.add(opcionPregunta2);
+			
+		}
+		
+		if (!txtOpcion3.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta3 = new OpcionPregunta();
+			opcionPregunta3.setCorrecta(check3.isSelected());
+			opcionPregunta3.setDescripcion(txtOpcion3.getText());
+			
+			opciones.add(opcionPregunta3);
+			
+		}
+		
+		if (!txtOpcion4.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta4 = new OpcionPregunta();
+			opcionPregunta4.setCorrecta(check4.isSelected());
+			opcionPregunta4.setDescripcion(txtOpcion4.getText());
+			
+			opciones.add(opcionPregunta4);
+			
+		}
+		
+		if (!txtOpcion5.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta5 = new OpcionPregunta();
+			opcionPregunta5.setCorrecta(check5.isSelected());
+			opcionPregunta5.setDescripcion(txtOpcion5.getText());
+			
+			opciones.add(opcionPregunta5);
+			
+		}
+
+		pregunta.setOpcionPreguntas(opciones);
 
 		getDocenteControllers().getPreguntas().add(pregunta);
 

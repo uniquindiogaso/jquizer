@@ -13,6 +13,7 @@ public class Evaluacion {
 	private int duracion;
 	private boolean activo;
 	private int docente_id;
+	private Tema tema;
 	
 	public Evaluacion() {
 		super();
@@ -155,6 +156,20 @@ public class Evaluacion {
 	 */
 	public void setDocente_id(int docente_id) {
 		this.docente_id = docente_id;
+	}
+
+	/**
+	 * @return the tema
+	 */
+	public Tema getTema() {
+		return tema;
+	}
+
+	/**
+	 * @param tema the tema to set
+	 */
+	public void setTema(Tema tema) {
+		this.tema = tema;
 	}
 	
 	

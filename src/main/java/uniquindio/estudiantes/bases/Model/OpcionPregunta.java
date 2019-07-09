@@ -22,6 +22,15 @@ public class OpcionPregunta {
 		this.pista = pista;
 	}
 
+	
+
+
+	public OpcionPregunta(String descripcion, String pareja) {
+		super();
+		this.descripcion = descripcion;
+		this.pareja = pareja;
+	}
+
 
 
 	public OpcionPregunta(String descripcion, boolean correcta, String pista, int pregunta_id) {
@@ -100,6 +109,24 @@ public class OpcionPregunta {
 	 */
 	public void setPregunta_id(int pregunta_id) {
 		this.pregunta_id = pregunta_id;
+	}
+
+
+
+	/**
+	 * @return the pareja
+	 */
+	public String getPareja() {
+		return pareja;
+	}
+
+
+
+	/**
+	 * @param pareja the pareja to set
+	 */
+	public void setPareja(String pareja) {
+		this.pareja = pareja;
 	}
 	
 	

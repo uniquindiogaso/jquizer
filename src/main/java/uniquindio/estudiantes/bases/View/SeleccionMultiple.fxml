@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.ControllerUI.SeleccionControllers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.estudiantes.bases.ControllerUI.SeleccionControllers">
    <children>
       <Text layoutX="163.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta de Seleccion Multiple">
          <font>
@@ -28,6 +28,12 @@
       <CheckBox fx:id="check4" layoutX="208.0" layoutY="244.0" mnemonicParsing="false" />
       <CheckBox fx:id="check5" layoutX="208.0" layoutY="281.0" mnemonicParsing="false" />
       <CheckBox fx:id="publica" layoutX="263.0" layoutY="322.0" mnemonicParsing="false" text="Pregunta Publica" />
-      <Button fx:id="btnAgregar" layoutX="524.0" layoutY="355.0" mnemonicParsing="false" onAction="#crearPregunta" text="Agregar" />
+      <Button fx:id="btnAgregar" layoutX="529.0" layoutY="402.0" mnemonicParsing="false" onAction="#crearPregunta" text="Agregar" />
+      <Text layoutX="42.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tiempo Estimado" />
+      <Text layoutX="277.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso " />
+      <Text layoutX="198.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Interno" />
+      <TextField fx:id="txtDuracion" layoutX="142.0" layoutY="350.0" prefHeight="17.0" prefWidth="37.0" />
+      <TextField fx:id="txtPeso" layoutX="319.0" layoutY="350.0" prefHeight="17.0" prefWidth="37.0" />
+      <TextField fx:id="txtCodigoInterno" layoutX="291.0" layoutY="390.0" />
    </children>
 </AnchorPane>

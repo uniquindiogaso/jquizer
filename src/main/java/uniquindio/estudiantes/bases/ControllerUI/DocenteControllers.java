@@ -1,6 +1,7 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,112 +24,118 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
-
+import uniquindio.estudiantes.bases.Model.Evaluacion;
 import uniquindio.estudiantes.bases.Model.Persona;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
-public class DocenteControllers{
+public class DocenteControllers {
 
-	 	@FXML
-	    private TextField txtNombreE;
+	@FXML
+	private TextField txtNombreE;
 
-	    @FXML
-	    private TextArea txtDescripcion;
+	@FXML
+	private TextArea txtDescripcion;
 
-	    @FXML
-	    private ToggleGroup grupoEvaluacion;
+	@FXML
+	private ToggleGroup grupoEvaluacion;
 
-	    @FXML
-	    private DatePicker PickFechaI;
+	@FXML
+	private DatePicker PickFechaI;
 
-	    @FXML
-	    private DatePicker PickFechaF;
+	@FXML
+	private DatePicker PickFechaF;
 
-	    @FXML
-	    private TextField txtDuracion;
+	@FXML
+	private TextField txtDuracion;
 
-	    @FXML
-	    private Button btnCrearEvaluacion;
+	@FXML
+	private Button btnCrearEvaluacion;
 
-	    @FXML
-	    private ComboBox<Tema> comboTemas2;
+	@FXML
+	private ComboBox<Tema> comboTemas2;
 
-	    @FXML
-	    private ComboBox<?> comboPBanco;
+	@FXML
+	private ComboBox<?> comboPBanco;
 
-	    @FXML
-	    private Button btnAgregar;
+	@FXML
+	private Button btnAgregar;
 
-	    @FXML
-	    private TableView<Pregunta> tablePreguntas;
+	@FXML
+	private TableView<Pregunta> tablePreguntas;
 
-	    @FXML
-	    private TableColumn<Pregunta, Integer> columCodigo;
+	@FXML
+	private TableColumn<Pregunta, Integer> columCodigo;
 
-	    @FXML
-	    private TableColumn<Pregunta, String> columNombre;
+	@FXML
+	private TableColumn<Pregunta, String> columNombre;
 
-	    @FXML
-	    private TableColumn<Pregunta, Boolean> columPublica;
+	@FXML
+	private TableColumn<Pregunta, Boolean> columPublica;
 
-	    @FXML
-	    private TableColumn<Pregunta, Float> columValor;
+	@FXML
+	private TableColumn<Pregunta, Float> columValor;
 
-	    @FXML
-	    private TableColumn<Pregunta, Integer> columTiempo;
+	@FXML
+	private TableColumn<Pregunta, Integer> columTiempo;
 
-	    @FXML
-	    private AnchorPane bancoPublico;
+	@FXML
+	private AnchorPane bancoPublico;
 
-	    @FXML
-	    private TableView<?> tableBancoPublico;
+	@FXML
+	private TableView<?> tableBancoPublico;
 
-	    @FXML
-	    private ComboBox<Tema> comboTemas1;
+	@FXML
+	private ComboBox<Tema> comboTemas1;
 
-	    @FXML
-	    private AnchorPane bancoPrivado;
+	@FXML
+	private AnchorPane bancoPrivado;
 
-	    @FXML
-	    private TableView<?> tableBancoPrivado;
+	@FXML
+	private TableView<?> tableBancoPrivado;
 
-	    @FXML
-	    private ComboBox<Tema> comboTemas;
+	@FXML
+	private ComboBox<Tema> comboTemas;
 
-	    @FXML
-	    private TableView<?> tableEstudiantes;
+	@FXML
+	private TableView<?> tableEstudiantes;
 
-	    @FXML
-	    private Button btnDescargar;
+	@FXML
+	private Button btnDescargar;
 
-	    @FXML
-	    private ComboBox<?> comboGrupo;
+	@FXML
+	private ComboBox<?> comboGrupo;
 
-	    @FXML
-	    private TableView<?> tableHorario;
+	@FXML
+	private TableView<?> tableHorario;
 
-	    @FXML
-	    private TableView<?> tableReporteCurso;
-	    
-	    ObservableList<Pregunta> preguntas = FXCollections.observableArrayList();
+	@FXML
+	private TableView<?> tableReporteCurso;
+
+	@FXML
+	private RadioButton rbtExamen;
+
+	@FXML
+	private RadioButton rbtQuiz;
+
+	ObservableList<Pregunta> preguntas = FXCollections.observableArrayList();
 
 	private Manejador manejador;
 
 	private Stage escenario;
 
 	private Usuario user;
-	
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
-	public DocenteControllers() {}
-	
+	public DocenteControllers() {
+	}
+
 	public void initialize() {
-		
-		//cargarTemas();
-		
+
+		// cargarTemas();
+
 	}
 
 	@FXML
@@ -137,10 +144,10 @@ public class DocenteControllers{
 		try {
 
 			ObservableList<Tema> temas = FXCollections.observableArrayList();
-			manejador.getTemasController().obtenerTemas().forEach(xx->{
+			manejador.getTemasController().obtenerTemas().forEach(xx -> {
 				temas.add(xx);
 			});
-			
+
 			comboTemas.setItems(temas);
 			comboTemas1.setItems(temas);
 			comboTemas2.setItems(temas);
@@ -156,9 +163,9 @@ public class DocenteControllers{
 
 	}
 
-    @FXML
-    void  cargarPreguntas() {
-    	
+	@FXML
+	void cargarPreguntas() {
+
 		try {
 
 			tablePreguntas.setItems(preguntas);
@@ -167,8 +174,6 @@ public class DocenteControllers{
 			columPublica.setCellValueFactory(new PropertyValueFactory<Pregunta, Boolean>("publica"));
 			columTiempo.setCellValueFactory(new PropertyValueFactory<Pregunta, Integer>("tiempo"));
 			columValor.setCellValueFactory(new PropertyValueFactory<Pregunta, Float>("valor"));
-			
-			
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -182,8 +187,8 @@ public class DocenteControllers{
 
 	@FXML
 	void cargarEmparejar(ActionEvent event) {
-		
-		Tema tema = comboTemas2.getSelectionModel().getSelectedItem();
+
+		Tema tema = comboTemas2.getValue();
 
 		manejador.cargarEscenarioEmparejar(user, tema);
 
@@ -192,46 +197,66 @@ public class DocenteControllers{
 	@FXML
 	void cargarSeleccionar(ActionEvent event) {
 
-		Tema tema = comboTemas2.getSelectionModel().getSelectedItem();
+		Tema tema = comboTemas2.getValue();
 		manejador.cargarEscenarioSeleccionar(user, tema);
 
 	}
 
 	@FXML
 	void cargarVoF(ActionEvent event) {
-		
-		Tema tema = comboTemas2.getSelectionModel().getSelectedItem();
+
+		Tema tema = comboTemas2.getValue();
 		manejador.cargarEscenarioVoF(user, tema);
 
 	}
-	
-    @FXML
-    void mostrarBancoPrivado(ActionEvent event) {
 
-    	bancoPrivado.setVisible(true);
-    	bancoPublico.setVisible(false);
-    	
-    }
+	@FXML
+	void mostrarBancoPrivado(ActionEvent event) {
 
-    @FXML
-    void mostrarBancoPublico(ActionEvent event) {
+		bancoPrivado.setVisible(true);
+		bancoPublico.setVisible(false);
 
-    	bancoPublico.setVisible(true);
-    	bancoPrivado.setVisible(false);
-    	
-    }
-    
-    
-    @FXML
-    void crearEvaluacion(ActionEvent event) {
-    	
-    	System.out.println("preguntas " + preguntas.size());
-    	
-    	for( Pregunta p : preguntas) {
-    		System.out.println("Pregunta p " + p.getNombre());
-    	}
+	}
 
-    }
+	@FXML
+	void mostrarBancoPublico(ActionEvent event) {
+
+		bancoPublico.setVisible(true);
+		bancoPrivado.setVisible(false);
+
+	}
+
+	@FXML
+	void crearEvaluacion(ActionEvent event) {
+
+		Tema tema = comboTemas2.getSelectionModel().getSelectedItem();
+
+		Evaluacion evaluacion = new Evaluacion();
+		evaluacion.setDuracion(Integer.parseInt(txtDuracion.getText()));
+		evaluacion.setDescripcion(txtDescripcion.getText());
+		evaluacion.setNombre(txtNombreE.getText());
+		evaluacion.setDocente_id(user.getId());
+
+		// acomodar para capturar La fecha como Date
+		// evaluacion.setF_inicio();
+		// evaluacion.setF_fin(f_fin);
+		evaluacion.setTema(tema);
+
+		if (rbtExamen.isSelected()) {
+
+			evaluacion.setTipo("Examen");
+
+		}
+
+		if (rbtQuiz.isSelected()) {
+
+			evaluacion.setTipo("Quiz");
+
+		}
+
+		manejador.getEvaluacionController().guardarExamen(evaluacion, preguntas);
+
+	}
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 
@@ -278,14 +303,12 @@ public class DocenteControllers{
 		this.user = user;
 	}
 
-
 	/**
 	 * @return the tablePreguntas
 	 */
 	public TableView<Pregunta> getTablePreguntas() {
 		return tablePreguntas;
 	}
-
 
 	/**
 	 * @param tablePreguntas the tablePreguntas to set
@@ -306,8 +329,6 @@ public class DocenteControllers{
 	 */
 	public void setPreguntas(ObservableList<Pregunta> preguntas) {
 		this.preguntas = preguntas;
-	}
-
-	
+	}	
 
 }

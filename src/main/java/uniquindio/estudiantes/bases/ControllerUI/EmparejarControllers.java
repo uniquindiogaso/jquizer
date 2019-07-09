@@ -1,51 +1,68 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.OpcionPregunta;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class EmparejarControllers {
 
-	@FXML
-	private TextField txtopcion1;
+    @FXML
+    private TextField txtopcion1;
 
-	@FXML
-	private TextField txtPareja1;
+    @FXML
+    private TextField txtPareja1;
 
-	@FXML
-	private TextField txtopcion2;
+    @FXML
+    private TextField txtopcion2;
 
-	@FXML
-	private TextField txtPareja2;
+    @FXML
+    private TextField txtPareja2;
 
-	@FXML
-	private TextField txtopcion3;
+    @FXML
+    private TextField txtopcion3;
 
-	@FXML
-	private TextField txtopcion4;
+    @FXML
+    private TextField txtopcion4;
 
-	@FXML
-	private TextField txtopcion5;
+    @FXML
+    private TextField txtopcion5;
 
-	@FXML
-	private TextField txtPareja3;
+    @FXML
+    private TextField txtPareja3;
 
-	@FXML
-	private TextField txtPareja4;
+    @FXML
+    private TextField txtPareja4;
 
-	@FXML
-	private TextField txtPareja5;
+    @FXML
+    private TextField txtPareja5;
 
-	@FXML
-	private Button btnAgregar;
+    @FXML
+    private Button btnAgregar;
 
-	@FXML
-	private CheckBox publica;
+    @FXML
+    private CheckBox publica;
+
+    @FXML
+    private TextField txtDuracion;
+
+    @FXML
+    private TextField txtPeso;
+
+    @FXML
+    private TextField txtCodigoInterno;
+
+    @FXML
+    private TextArea txtEnunciado;
 
 	private Manejador manejador;
 
@@ -59,39 +76,77 @@ public class EmparejarControllers {
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
+	
 	@FXML
 	void agregarPregunta() {
 
-		if (txtopcion1.getText() != null) {
-
-		}
-
-		if (txtopcion2.getText() != null) {
-
-		}
-
-		if (txtopcion3.getText() != null) {
-
-		}
-
-		if (txtopcion4.getText() != null) {
-
-		}
-
-		if (txtopcion5.getText() != null) {
-
-		}
-
+		System.out.println(tema.getId());
+		
 		Pregunta pregunta = new Pregunta();
-
-		pregunta.setCodinterno("Pregunta emparejar");
+		List<OpcionPregunta> opciones = new ArrayList<>();
+		
+		pregunta.setCodinterno(txtCodigoInterno.getText());
 		pregunta.setPublica(publica.isSelected());
 		pregunta.setTema_id(tema.getId());
 		pregunta.setActivo(true);
-		pregunta.setTiempo(20);
-		pregunta.setValor((float) 20.0);
-		pregunta.setId(8);
-		pregunta.setTipo_preg_id(1);
+		pregunta.setNombre(txtEnunciado.getText());
+		pregunta.setTiempo(Integer.parseInt(txtDuracion.getText()));
+		pregunta.setValor(Float.valueOf(txtPeso.getText()));
+		pregunta.setTipo_preg_id(2);
+		
+		
+		
+		if (!txtopcion1.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta1 = new OpcionPregunta();
+			opcionPregunta1.setPareja(txtPareja1.getText());
+			opcionPregunta1.setDescripcion(txtopcion1.getText());
+
+			opciones.add(opcionPregunta1);
+			
+		}
+		
+		if (!txtopcion2.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta2 = new OpcionPregunta();
+			opcionPregunta2.setPareja(txtPareja2.getText());
+			opcionPregunta2.setDescripcion(txtopcion2.getText());
+			
+			opciones.add(opcionPregunta2);
+			
+		}
+		
+		if (!txtopcion3.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta3 = new OpcionPregunta();
+			opcionPregunta3.setPareja(txtPareja3.getText());
+			opcionPregunta3.setDescripcion(txtopcion3.getText());
+			
+			opciones.add(opcionPregunta3);
+			
+		}
+		
+		if (!txtopcion4.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta4 = new OpcionPregunta();
+			opcionPregunta4.setPareja(txtPareja4.getText());
+			opcionPregunta4.setDescripcion(txtopcion4.getText());
+			
+			opciones.add(opcionPregunta4);
+			
+		}
+		
+		if (!txtopcion5.getText().isEmpty()) {
+			
+			OpcionPregunta opcionPregunta5 = new OpcionPregunta();
+			opcionPregunta5.setPareja(txtPareja5.getText());
+			opcionPregunta5.setDescripcion(txtopcion5.getText());
+			
+			opciones.add(opcionPregunta5);
+			
+		}
+
+		pregunta.setOpcionPreguntas(opciones);
 
 		getDocenteControllers().getPreguntas().add(pregunta);
 

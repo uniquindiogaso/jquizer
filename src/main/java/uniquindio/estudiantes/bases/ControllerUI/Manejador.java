@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Controllers.EvaluacionController;
 import uniquindio.estudiantes.bases.Controllers.TemasController;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Main.Main;
@@ -26,6 +27,8 @@ public class Manejador {
 	private TemasPOJO temasPOJO;
 	
 	private DocenteControllers docenteControllers;
+	
+	private EvaluacionController evaluacionController;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 	
@@ -34,7 +37,7 @@ public class Manejador {
 		this.escenario  = escenario;
 		usercontroller  = new UsuarioController();
 		temasController = new TemasController();
-		temasController = new TemasController();
+		evaluacionController = new EvaluacionController();
 		
 		cargarEscenarioLogin();
 		
@@ -160,6 +163,7 @@ public class Manejador {
 			emparejar.setEscenario(stage);
 			emparejar.setManejador(this);
 			emparejar.setUser(user);
+			emparejar.setTema(tema);
 			emparejar.setDocenteControllers(docenteControllers);
 			
 		} catch(IOException e){
@@ -221,6 +225,7 @@ public class Manejador {
 			seleccion.setEscenario(stage);
 			seleccion.setManejador(this);
 			seleccion.setUser(user);
+			seleccion.setTema(tema);
 			seleccion.setDocenteControllers(docenteControllers);
 			
 		} catch(IOException e){
@@ -267,6 +272,20 @@ public class Manejador {
 	 */
 	public void setTemasPOJO(TemasPOJO temasPOJO) {
 		this.temasPOJO = temasPOJO;
+	}
+
+	/**
+	 * @return the evaluacionController
+	 */
+	public EvaluacionController getEvaluacionController() {
+		return evaluacionController;
+	}
+
+	/**
+	 * @param evaluacionController the evaluacionController to set
+	 */
+	public void setEvaluacionController(EvaluacionController evaluacionController) {
+		this.evaluacionController = evaluacionController;
 	}
 
 
