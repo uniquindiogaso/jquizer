@@ -128,6 +128,12 @@ public class OpcionPregunta {
 	public void setPareja(String pareja) {
 		this.pareja = pareja;
 	}
+
+
+	public String imprimir() {
+		return "OpcionPregunta [id=" + id + ", descripcion=" + descripcion + ", correcta=" + correcta + ", pista="
+				+ pista + ", pregunta_id=" + pregunta_id + ", pareja=" + pareja + "]";
+	}
 	
 	
 	

@@ -1,5 +1,6 @@
 package uniquindio.estudiantes.bases.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pregunta {
@@ -15,12 +16,11 @@ public class Pregunta {
 	private int tiempo;
 	private Float valor;
 	private List<OpcionPregunta> opcionPreguntas;
-	
-	
+
 	public Pregunta() {
 		super();
+		this.opcionPreguntas = new ArrayList<OpcionPregunta>();
 	}
-
 
 	public Pregunta(int id, String nombre, String codinterno, boolean activo, boolean publica, int tema_id,
 			int tipo_preg_id, int parent_id, int tiempo, Float valor) {
@@ -35,118 +35,98 @@ public class Pregunta {
 		this.parent_id = parent_id;
 		this.tiempo = tiempo;
 		this.valor = valor;
+		this.opcionPreguntas = new ArrayList<OpcionPregunta>();
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public String getCodinterno() {
 		return codinterno;
 	}
 
-
 	public void setCodinterno(String codinterno) {
 		this.codinterno = codinterno;
 	}
-
 
 	public boolean isActivo() {
 		return activo;
 	}
 
-
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
-
 
 	public boolean isPublica() {
 		return publica;
 	}
 
-
 	public void setPublica(boolean publica) {
 		this.publica = publica;
 	}
-
 
 	public int getTema_id() {
 		return tema_id;
 	}
 
-
 	public void setTema_id(int tema_id) {
 		this.tema_id = tema_id;
 	}
-
 
 	public int getTipo_preg_id() {
 		return tipo_preg_id;
 	}
 
-
 	public void setTipo_preg_id(int tipo_preg_id) {
 		this.tipo_preg_id = tipo_preg_id;
 	}
-
 
 	public int getParent_id() {
 		return parent_id;
 	}
 
-
 	public void setParent_id(int parent_id) {
 		this.parent_id = parent_id;
 	}
-
 
 	public int getTiempo() {
 		return tiempo;
 	}
 
-
 	public void setTiempo(int tiempo) {
 		this.tiempo = tiempo;
 	}
-
 
 	public Float getValor() {
 		return valor;
 	}
 
-
 	public void setValor(Float valor) {
 		this.valor = valor;
 	}
 
-	
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return nombre;
 	}
-
 
 	/**
 	 * @return the opcionPreguntas
@@ -155,17 +135,17 @@ public class Pregunta {
 		return opcionPreguntas;
 	}
 
-
 	/**
 	 * @param opcionPreguntas the opcionPreguntas to set
 	 */
 	public void setOpcionPreguntas(List<OpcionPregunta> opcionPreguntas) {
 		this.opcionPreguntas = opcionPreguntas;
 	}
-	
-	
-	
-	
-	
-	
+
+	public String imprimir() {
+		return "Pregunta [id=" + id + ", nombre=" + nombre + ", codinterno=" + codinterno + ", activo=" + activo
+				+ ", publica=" + publica + ", tema_id=" + tema_id + ", tipo_preg_id=" + tipo_preg_id + ", parent_id="
+				+ parent_id + ", tiempo=" + tiempo + ", valor=" + valor + ", opcionPreguntas=" + opcionPreguntas + "]";
+	}
+
 }

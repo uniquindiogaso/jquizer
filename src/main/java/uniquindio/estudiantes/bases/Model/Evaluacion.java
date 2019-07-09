@@ -17,6 +17,7 @@ public class Evaluacion {
 	
 	public Evaluacion() {
 		super();
+		this.activo = true;
 	}
 
 	public Evaluacion(String nombre, String descripcion, String tipo, Date f_inicio, Date f_fin, int duracion,
@@ -170,6 +171,13 @@ public class Evaluacion {
 	 */
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+
+	public String imprimir() {
+		return "Evaluacion [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", tipo=" + tipo
+				+ ", f_inicio=" + f_inicio + ", f_fin=" + f_fin + ", duracion=" + duracion + ", activo=" + activo
+				+ ", docente_id=" + docente_id + ", tema=" + tema + "]";
 	}
 	
 	

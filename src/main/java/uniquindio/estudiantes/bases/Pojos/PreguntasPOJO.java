@@ -6,6 +6,8 @@ import java.util.Map;
 import org.sql2o.Connection;
 
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
+import uniquindio.estudiantes.bases.Model.Evaluacion;
+import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
@@ -40,6 +42,39 @@ public class PreguntasPOJO {
             		.addParameter("codinterno", codigo)
                     .executeAndFetchFirst(TipoPregunta.class);
         }
+    }
+    
+    public TipoPregunta obtenerTipoPreguntaXId(int id) {
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query = "select id , codinterno , nombre from tipo_preg where id = :id LIMIT 1";
+            return con.createQuery(query)
+            		.addParameter("id", id)
+                    .executeAndFetchFirst(TipoPregunta.class);
+        }
+    }
+    
+    public int insertarPregunta(Pregunta p) {
+        int res = -1;
+        final String insertQuery
+                = "INSERT INTO pregunta(nombre, codinterno, activo, publica, temas_id, tipo_preg_id, tiempo, valor) "
+                		+ "VALUES (:nombre, :codinterno, true, :publica, :temas_id, :tipo_preg_id, :tiempo, :valor);";
+
+        try (Connection con = DbHelper.getSql2o().beginTransaction()) {
+            res = con.createQuery(insertQuery, true)
+                    .addParameter("nombre", p.getNombre())
+                    .addParameter("codinterno", p.getCodinterno())
+                    .addParameter("publica", p.isActivo())
+                    .addParameter("temas_id", p.getTema_id())
+                    .addParameter("tipo_preg_id", p.getTipo_preg_id())
+                    .addParameter("tiempo", p.getTiempo())
+                    .addParameter("valor", p.getValor())
+
+                    .executeUpdate()
+                    .getResult();
+            con.commit();
+        }
+
+        return res;
     }
 
 }
