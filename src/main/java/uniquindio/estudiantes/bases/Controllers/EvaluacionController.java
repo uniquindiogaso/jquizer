@@ -67,6 +67,7 @@ public class EvaluacionController {
 				} else if ("emparejar".equals(tipoPregunta.getCodinterno())) {
 					// todo
 				} else if ("seleccion_multiple".equals(tipoPregunta.getCodinterno())) {
+					guardarSeleccionM(p, e); 
 					// todo
 				} else if ("ordenar".equals(tipoPregunta.getCodinterno())) {
 					// todo
@@ -99,6 +100,23 @@ public class EvaluacionController {
 		return exitoPreguntXEval && exitoBancoPreguntas;
 	}
 
+	private boolean guardarSeleccionM(Pregunta p , Evaluacion evaluacion) {
+		//Insertar Pregunta
+		int preguntaId = preguntaPOJO.insertarPregunta(p);
+		
+		boolean exitoPreguntXEval = guardarpreguntaXEvaluacion(preguntaId, evaluacion.getId());
+		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id() , p.getTema_id());
+		
+		
+		for( OpcionPregunta opPregunta  : p.getOpcionPreguntas()) {
+				//System.out.println("Opcion " + opcion.imprimir());
+				opPregunta.setPregunta_id(preguntaId);
+				guardarOpcionPregunta(opPregunta);
+		}
+		
+		return  exitoPreguntXEval && exitoBancoPreguntas;
+	}
+	
 	private boolean guardarpreguntaXEvaluacion(int preguntaId, int evaluacionId) {
 		int pregXEvaluacion_id = preguntaPOJO.insertarPreguntaXEvaluacion(preguntaId, evaluacionId);
 		return pregXEvaluacion_id != -1;
