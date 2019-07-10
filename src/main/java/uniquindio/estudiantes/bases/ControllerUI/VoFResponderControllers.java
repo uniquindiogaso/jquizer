@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResEstudiante;
 import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
@@ -79,9 +80,27 @@ public class VoFResponderControllers {
 			
 		}
 		
-		Pregunta respuesta = new Pregunta();
+		ResEstudiante respuesta = new ResEstudiante();
 		
-		respuestas.add(respuesta);
+		boolean correcta ;
+		
+		if (rbtFalso.isSelected()) {
+			
+			correcta = false;
+			
+		}
+		
+		if (rbtVerdadero.isSelected()) {
+			
+			correcta = true;
+			
+		}
+		
+		
+		respuesta.setEvaluacion_id(idEvaluacion);
+		respuesta.setOpc_pregunta_id(1);
+		respuesta.setPre_eval_id(pre_eval_id);
+		
 		preguntas.remove(0);
 		
 		initialize();
