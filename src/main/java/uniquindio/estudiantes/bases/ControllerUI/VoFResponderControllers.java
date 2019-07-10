@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class VoFResponderControllers {
@@ -40,7 +41,7 @@ public class VoFResponderControllers {
 
 	private Stage escenario;
 	
-	private List<Pregunta> preguntas;
+	private List<ResPreguntasEvaluacion> preguntas;
 	
 	private List<Pregunta> respuestas;
 
@@ -131,14 +132,14 @@ public class VoFResponderControllers {
 	/**
 	 * @return the preguntas
 	 */
-	public List<Pregunta> getPreguntas() {
+	public List<ResPreguntasEvaluacion> getPreguntas() {
 		return preguntas;
 	}
 
 	/**
 	 * @param preguntas the preguntas to set
 	 */
-	public void setPreguntas(List<Pregunta> preguntas) {
+	public void setPreguntas(List<ResPreguntasEvaluacion> preguntas) {
 		this.preguntas = preguntas;
 	}
 

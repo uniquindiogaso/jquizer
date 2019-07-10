@@ -197,6 +197,14 @@ public class Evaluacion {
 				+ ", f_inicio=" + f_inicio + ", f_fin=" + f_fin + ", duracion=" + duracion + ", activo=" + activo
 				+ ", docente_id=" + docente_id + ", tema=" + tema + "]";
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return nombre;
+	}
 	
 	
 	

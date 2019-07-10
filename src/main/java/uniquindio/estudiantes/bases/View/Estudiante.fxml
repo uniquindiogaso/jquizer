@@ -25,9 +25,9 @@
                               <TableColumn fx:id="columFin" prefWidth="62.0" text="Fecha Fin" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btnAcceder" layoutX="553.0" layoutY="430.0" mnemonicParsing="false" text="Acceder" />
+                        <Button fx:id="btnAcceder" layoutX="553.0" layoutY="430.0" mnemonicParsing="false" onAction="#cargarPreguntaVoF" text="Acceder" />
                         <Button fx:id="btnActualizar" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#actualizarEvaluacion" text="Actualizar Tabla" />
-                        <ComboBox fx:id="comboEvaluaciones" layoutX="239.0" layoutY="74.0" onAction="#actualizarEvaluacion" prefWidth="150.0" promptText="Evaluaciones" />
+                        <ComboBox fx:id="comboEvaluaciones" layoutX="239.0" layoutY="74.0" prefWidth="150.0" promptText="Evaluaciones" />
                      </children>
                   </AnchorPane>
               </content>

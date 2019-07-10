@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Model.Evaluacion;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
@@ -55,7 +56,7 @@ public class EstudianteControllers {
     private ComboBox<Evaluacion> comboEvaluaciones;
 	
 	ObservableList<Evaluacion> evaluaciones = FXCollections.observableArrayList();
-	
+		
 	List<Pregunta> respuestas = new ArrayList<>();
 
 	private Manejador manejador;
@@ -65,58 +66,26 @@ public class EstudianteControllers {
 	private Usuario user;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
-
-//    @FXML
-//    void actualizarEvaluacion(ActionEvent event) {
-//
-//    	
-//		try {
-//
-//			tablePresentarExamen.setItems(evaluaciones);
-//			columNombre.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("nombre"));
-//			columTema.setCellValueFactory(new PropertyValueFactory<Evaluacion, Tema>("tema"));
-//			columTipo.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("tipo"));
-//			columInicio.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_inicio"));
-//			columFin.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_fin"));
-//
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//
-//			System.out.println("no carga " + e.getMessage());
-//
-//			e.getStackTrace();
-//
-//		}
-//    }
-    
-    
+        
 	@FXML
 	void actualizarEvaluacion() {
 
-		try {
+		
 
-			ObservableList<Evaluacion> evaluacion = FXCollections.observableArrayList();
-			manejador.getEvaluacionController().evaluacionesPendientes(user.getId()).forEach(xx -> {
-				evaluacion.add(xx);
-			});
-
-			comboEvaluaciones.setItems(evaluacion);
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			System.out.println("no ttt carga " + e.getMessage());
-
-			e.getStackTrace();
-
-		}
+		ObservableList<Evaluacion> evaluacion = FXCollections.observableArrayList();
+		manejador.getEvaluacionController().evaluacionesPendientes(user.getId()).forEach(xx -> {
+			evaluacion.add(xx);
+		});
+		
+		comboEvaluaciones.setItems(evaluacion);
 
 	}
 
 	@FXML
 	void cargarPreguntaVoF() {
 
-		manejador.cargarEscenarioResponderVoF(respuestas);
+		List<ResPreguntasEvaluacion> preguntas = manejador.getPreguntasController().obtenerPreguntasEvaluacion(comboEvaluaciones.getValue().getId());
+		manejador.cargarEscenarioResponderVoF(preguntas);
 
 	}
 	

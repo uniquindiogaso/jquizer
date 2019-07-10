@@ -8,10 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Controllers.EvaluacionController;
+import uniquindio.estudiantes.bases.Controllers.PreguntasController;
 import uniquindio.estudiantes.bases.Controllers.TemasController;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Main.Main;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.TemasPOJO;
@@ -32,6 +34,8 @@ public class Manejador {
 	private EvaluacionController evaluacionController;
 	
 	private EstudianteControllers estudianteControllers;
+	
+	private PreguntasController preguntasController;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 	
@@ -41,6 +45,7 @@ public class Manejador {
 		usercontroller  = new UsuarioController();
 		temasController = new TemasController();
 		evaluacionController = new EvaluacionController();
+		preguntasController =  new PreguntasController();
 		
 		cargarEscenarioLogin();
 		
@@ -240,7 +245,7 @@ public class Manejador {
 		
 	}
 	
-	public void cargarEscenarioResponderVoF(List<Pregunta> preguntas) {
+	public void cargarEscenarioResponderVoF(List<ResPreguntasEvaluacion> preguntas) {
 		
 		
 		try {
@@ -362,6 +367,20 @@ public class Manejador {
 	 */
 	public void setEstudianteControllers(EstudianteControllers estudianteControllers) {
 		this.estudianteControllers = estudianteControllers;
+	}
+
+	/**
+	 * @return the preguntasController
+	 */
+	public PreguntasController getPreguntasController() {
+		return preguntasController;
+	}
+
+	/**
+	 * @param preguntasController the preguntasController to set
+	 */
+	public void setPreguntasController(PreguntasController preguntasController) {
+		this.preguntasController = preguntasController;
 	}
 	
 	

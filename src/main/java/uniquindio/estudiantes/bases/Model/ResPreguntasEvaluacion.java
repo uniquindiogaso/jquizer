@@ -168,6 +168,14 @@ public class ResPreguntasEvaluacion {
 				+ ", tipo_preg_id=" + tipo_preg_id + "]";
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return nombre;
+	}
+
 	
 	
 	
