@@ -67,6 +67,12 @@ public class ResEstudiante {
 	public void setResBoolean(boolean resBoolean) {
 		this.resBoolean = resBoolean;
 	}
+
+	
+	public String imprimir() {
+		return "ResEstudiante [id=" + id + ", evaluacion_id=" + evaluacion_id + ", opc_pregunta_id=" + opc_pregunta_id
+				+ ", pre_eval_id=" + pre_eval_id + ", resBoolean=" + resBoolean + "]";
+	}
 	
 	
 	
