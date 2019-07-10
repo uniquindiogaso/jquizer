@@ -5,6 +5,8 @@ public class ResEstudiante {
 	private int evaluacion_id;
 	private int opc_pregunta_id;
 	private int pre_eval_id;
+	private boolean resBoolean;
+	
 			
 	public ResEstudiante() {
 		super();
@@ -15,6 +17,15 @@ public class ResEstudiante {
 		this.evaluacion_id = evaluacion_id;
 		this.opc_pregunta_id = opc_pregunta_id;
 		this.pre_eval_id = pre_eval_id;
+	}
+	
+	
+
+	public ResEstudiante(int evaluacion_id, int pre_eval_id, boolean resBoolean) {
+		super();
+		this.evaluacion_id = evaluacion_id;
+		this.pre_eval_id = pre_eval_id;
+		this.resBoolean = resBoolean;
 	}
 
 	public int getId() {
@@ -47,6 +58,14 @@ public class ResEstudiante {
 
 	public void setPre_eval_id(int pre_eval_id) {
 		this.pre_eval_id = pre_eval_id;
+	}
+
+	public boolean isResBoolean() {
+		return resBoolean;
+	}
+
+	public void setResBoolean(boolean resBoolean) {
+		this.resBoolean = resBoolean;
 	}
 	
 	
