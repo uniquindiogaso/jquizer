@@ -20,6 +20,8 @@ public class ResPreguntasEvaluacion {
 	private int tipo_preg_id;
 	
 	private int t_defecto;
+	
+	private int pre_eval_id;
 
 	public ResPreguntasEvaluacion() {
 		super();
@@ -159,6 +161,14 @@ public class ResPreguntasEvaluacion {
 
 	public void setT_defecto(int t_defecto) {
 		this.t_defecto = t_defecto;
+	}
+		
+	public int getPre_eval_id() {
+		return pre_eval_id;
+	}
+
+	public void setPre_eval_id(int pre_eval_id) {
+		this.pre_eval_id = pre_eval_id;
 	}
 
 	public String imprimir() {

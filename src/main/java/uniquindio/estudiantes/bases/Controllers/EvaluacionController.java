@@ -23,11 +23,10 @@ public class EvaluacionController {
 		preguntaPOJO = new PreguntasPOJO();
 	}
 
-	
-	public List<Evaluacion> evaluacionesPendientes(int estudianteId){
+	public List<Evaluacion> evaluacionesPendientes(int estudianteId) {
 		return pojo.evaluacionesXEstudiante(estudianteId);
 	}
-	
+
 	public boolean guardarExamen(Evaluacion e, List<Pregunta> preguntas) {
 
 		if (0 == preguntas.size()) {
@@ -53,7 +52,7 @@ public class EvaluacionController {
 		int evaluacionId = pojo.insertar(e);
 		System.out.println("1. ID de Evaluacion Persistida " + evaluacionId);
 		e.setId(evaluacionId);
-		
+
 		System.out.println("2. ID de Evaluacion Persistida " + e.getId());
 
 		if (e.getId() != -1) {
@@ -65,10 +64,9 @@ public class EvaluacionController {
 				if ("F_V".equals(tipoPregunta.getCodinterno())) {
 					guardarPreguntaFalsoVerd(p, e);
 				} else if ("emparejar".equals(tipoPregunta.getCodinterno())) {
-					// todo
+					guardarSeleccionM(p, e);
 				} else if ("seleccion_multiple".equals(tipoPregunta.getCodinterno())) {
-					guardarSeleccionM(p, e); 
-					// todo
+					guardarSeleccionM(p, e);
 				} else if ("ordenar".equals(tipoPregunta.getCodinterno())) {
 					// todo
 				} else {
@@ -85,38 +83,38 @@ public class EvaluacionController {
 
 	private boolean guardarPreguntaFalsoVerd(Pregunta p, Evaluacion evaluacion) {
 		int preguntaId = preguntaPOJO.insertarPregunta(p);
-				
+
 		boolean exitoPreguntXEval = guardarpreguntaXEvaluacion(preguntaId, evaluacion.getId());
 
-		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id() , p.getTema_id());
-		
-		for( OpcionPregunta opPregunta : p.getOpcionPreguntas()) {
+		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id(), p.getTema_id());
+
+		for (OpcionPregunta opPregunta : p.getOpcionPreguntas()) {
 			opPregunta.setPregunta_id(preguntaId);
 			opPregunta.setDescripcion(opPregunta.isCorrecta() ? "Verdadera" : "Falsa");
 			guardarOpcionPregunta(opPregunta);
 		}
 
+		return exitoPreguntXEval && exitoBancoPreguntas;
+	}
+
+	private boolean guardarSeleccionM(Pregunta p, Evaluacion evaluacion) {
+		// Insertar Pregunta
+		int preguntaId = preguntaPOJO.insertarPregunta(p);
+
+		boolean exitoPreguntXEval = guardarpreguntaXEvaluacion(preguntaId, evaluacion.getId());
+		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id(), p.getTema_id());
+
+		for (OpcionPregunta opPregunta : p.getOpcionPreguntas()) {
+			// System.out.println("Opcion " + opcion.imprimir());
+			opPregunta.setPregunta_id(preguntaId);			
+			guardarOpcionPregunta(opPregunta);
+		}
 
 		return exitoPreguntXEval && exitoBancoPreguntas;
 	}
 
-	private boolean guardarSeleccionM(Pregunta p , Evaluacion evaluacion) {
-		//Insertar Pregunta
-		int preguntaId = preguntaPOJO.insertarPregunta(p);
-		
-		boolean exitoPreguntXEval = guardarpreguntaXEvaluacion(preguntaId, evaluacion.getId());
-		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id() , p.getTema_id());
-		
-		
-		for( OpcionPregunta opPregunta  : p.getOpcionPreguntas()) {
-				//System.out.println("Opcion " + opcion.imprimir());
-				opPregunta.setPregunta_id(preguntaId);
-				guardarOpcionPregunta(opPregunta);
-		}
-		
-		return  exitoPreguntXEval && exitoBancoPreguntas;
-	}
-	
+
+
 	private boolean guardarpreguntaXEvaluacion(int preguntaId, int evaluacionId) {
 		int pregXEvaluacion_id = preguntaPOJO.insertarPreguntaXEvaluacion(preguntaId, evaluacionId);
 		return pregXEvaluacion_id != -1;

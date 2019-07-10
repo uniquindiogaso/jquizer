@@ -136,7 +136,7 @@ public class PreguntasPOJO {
     
     public List<ResPreguntasEvaluacion> getPreguntasEvaluacion(int evaluacionId){
         try (Connection con = DbHelper.getSql2o().open()) {
-            final String query = "select p.id , p.nombre , p.codinterno , p.publica, p.t_defecto , p.temas_id , p.tipo_preg_id , p.valor , p.tiempo from pregunta p , pre_eval pxe , evaluacion eval\r\n" + 
+            final String query = "select p.id , p.nombre , p.codinterno , p.publica, p.t_defecto , p.temas_id , p.tipo_preg_id , p.valor , p.tiempo , pxe.id as \"pre_eval_id\"  from pregunta p , pre_eval pxe , evaluacion eval\r\n" + 
             		"where p.activo = true and pxe.pregunta_id = p.id and pxe.evaluacion_id = eval.id and eval.id = :evaluacionId";
             return con.createQuery(query)
             		.addParameter("evaluacionId", evaluacionId)
