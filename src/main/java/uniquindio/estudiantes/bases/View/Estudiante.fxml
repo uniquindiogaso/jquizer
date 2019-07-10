@@ -17,13 +17,15 @@
                      <children>
                         <TableView fx:id="tablePresentarExamen" layoutX="16.0" layoutY="34.0" prefHeight="375.0" prefWidth="596.0">
                           <columns>
-                            <TableColumn prefWidth="176.0" text="Nombre" />
-                            <TableColumn prefWidth="121.0" text="Tema" />
-                              <TableColumn prefWidth="175.0" text="Fecha Inicio" />
-                              <TableColumn prefWidth="123.0" text="Fecha Fin" />
+                            <TableColumn fx:id="columNombre" prefWidth="176.0" text="Nombre" />
+                            <TableColumn fx:id="columTema" prefWidth="121.0" text="Tema" />
+                              <TableColumn fx:id="columTipo" prefWidth="75.0" text="Tipo" />
+                              <TableColumn fx:id="columInicio" prefWidth="78.0" text="Fecha Inicio" />
+                              <TableColumn fx:id="columFin" prefWidth="62.0" text="Fecha Fin" />
                           </columns>
                         </TableView>
                         <Button fx:id="btnAcceder" layoutX="553.0" layoutY="430.0" mnemonicParsing="false" text="Acceder" />
+                        <Button fx:id="btnActualizar" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#actualizarEvaluacion" text="Actualizar Tabla" />
                      </children>
                   </AnchorPane>
               </content>
@@ -48,7 +50,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tableNotas1" layoutX="14.0" layoutY="29.0" prefHeight="412.0" prefWidth="589.0">
+                        <TableView fx:id="tablePesoNotas" layoutX="14.0" layoutY="29.0" prefHeight="412.0" prefWidth="589.0">
                            <columns>
                               <TableColumn prefWidth="245.5999813079834" text="Nombre" />
                               <TableColumn prefWidth="132.79998779296875" text="Tipo" />

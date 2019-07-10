@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="57.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Falso" />
-      <Text layoutX="302.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verdadero" />
-      <Button layoutX="483.0" layoutY="258.0" mnemonicParsing="false" text="Siguiente" />
-      <TextArea layoutX="34.0" layoutY="51.0" prefHeight="78.0" prefWidth="502.0" />
+      <Button fx:id="btnSiguiente" layoutX="470.0" layoutY="176.0" mnemonicParsing="false" onAction="#contestar" text="Siguiente" />
+      <TextArea fx:id="txtEnunciado" disable="true" layoutX="34.0" layoutY="51.0" prefHeight="78.0" prefWidth="502.0" />
       <Text layoutX="39.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enunciado">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <CheckBox layoutX="57.0" layoutY="167.0" mnemonicParsing="false" text="CheckBox" />
-      <CheckBox layoutX="302.0" layoutY="167.0" mnemonicParsing="false" text="CheckBox" />
+      <RadioButton fx:id="rbtVerdadero" layoutX="187.0" layoutY="140.0" mnemonicParsing="false" text="Verdadero">
+         <toggleGroup>
+            <ToggleGroup fx:id="groupRespuesta" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbtFalso" layoutX="323.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Falso" toggleGroup="$groupRespuesta" />
+      <Button fx:id="btnFinalizar" layoutX="429.0" layoutY="176.0" mnemonicParsing="false" onAction="#terminarSeccion" text="Terminar Seccion" visible="false" />
    </children>
 </AnchorPane>

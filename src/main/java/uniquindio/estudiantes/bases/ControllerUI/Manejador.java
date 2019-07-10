@@ -11,6 +11,7 @@ import uniquindio.estudiantes.bases.Controllers.EvaluacionController;
 import uniquindio.estudiantes.bases.Controllers.TemasController;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Main.Main;
+import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 import uniquindio.estudiantes.bases.Pojos.TemasPOJO;
@@ -29,6 +30,8 @@ public class Manejador {
 	private DocenteControllers docenteControllers;
 	
 	private EvaluacionController evaluacionController;
+	
+	private EstudianteControllers estudianteControllers;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 	
@@ -132,6 +135,7 @@ public class Manejador {
 			stage.show();
 			
 			EstudianteControllers estudiante = loader.getController();
+			estudianteControllers = estudiante;
 			estudiante.setEscenario(stage);
 			estudiante.setManejador(this);
 			estudiante.setUser(usuario);
@@ -236,6 +240,64 @@ public class Manejador {
 		
 	}
 	
+	public void cargarEscenarioResponderVoF(List<Pregunta> preguntas) {
+		
+		
+		try {
+			
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/PreguntaVF.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			VoFResponderControllers vof = loader.getController();
+			vof.setEstudianteControllers(estudianteControllers);
+			vof.setEscenario(stage);
+			vof.setManejador(this);
+			//vof.setUser(user);
+			vof.setPreguntas(preguntas);
+			
+		} catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	public void cargarEscenarioResponderSeleccion(List<Pregunta> preguntas) {
+		
+		
+		try {
+			
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/SeleccionMultipleResponder.fxml"));
+			Stage stage = new Stage();
+			Parent root = loader.load();
+			
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			
+			SeleccionResponderControllers seleccion = loader.getController();
+			seleccion.setEstudianteControllers(estudianteControllers);
+			seleccion.setEscenario(stage);
+			seleccion.setManejador(this);
+			//vof.setUser(user);
+			seleccion.setPreguntas(preguntas);
+			
+		} catch(IOException e){
+			
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
 	
 	
 	
@@ -288,10 +350,20 @@ public class Manejador {
 		this.evaluacionController = evaluacionController;
 	}
 
+	/**
+	 * @return the estudianteControllers
+	 */
+	public EstudianteControllers getEstudianteControllers() {
+		return estudianteControllers;
+	}
 
-
-
-
+	/**
+	 * @param estudianteControllers the estudianteControllers to set
+	 */
+	public void setEstudianteControllers(EstudianteControllers estudianteControllers) {
+		this.estudianteControllers = estudianteControllers;
+	}
+	
 	
 	
 
