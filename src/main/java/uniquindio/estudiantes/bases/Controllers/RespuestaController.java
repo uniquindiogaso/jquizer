@@ -35,6 +35,9 @@ public class RespuestaController {
 			
 			if ("F_V".equals(tipoPregunta.getCodinterno())) {				
 				OpcionPregunta op = preguntaPOJO.obtenerOpcionPreguntaXPregunta(r.getEvaluacion_id());
+				r.setOpc_pregunta_id(op.getId());
+				
+				respuestaPOJO.insertar(r);
 				
 			}		
 		}
