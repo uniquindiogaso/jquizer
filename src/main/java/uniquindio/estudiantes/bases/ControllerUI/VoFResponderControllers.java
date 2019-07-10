@@ -1,5 +1,6 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.sun.javafx.font.Disposer;
@@ -15,6 +16,7 @@ import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.ResEstudiante;
 import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Usuario;
+import uniquindio.estudiantes.bases.Utiles.Res;
 
 public class VoFResponderControllers {
 
@@ -44,7 +46,7 @@ public class VoFResponderControllers {
 	
 	private List<ResPreguntasEvaluacion> preguntas;
 	
-	private List<Pregunta> respuestas;
+	private List<ResEstudiante> respuestas;
 	
 	private Integer idEvaluacion;
 
@@ -56,7 +58,7 @@ public class VoFResponderControllers {
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
 	public VoFResponderControllers() {
-	
+	 respuestas = new ArrayList<ResEstudiante>();
 	}
 	
 	
@@ -82,7 +84,7 @@ public class VoFResponderControllers {
 		
 		ResEstudiante respuesta = new ResEstudiante();
 		
-		boolean correcta ;
+		boolean correcta = true ;
 		
 		if (rbtFalso.isSelected()) {
 			
@@ -98,8 +100,10 @@ public class VoFResponderControllers {
 		
 		
 		respuesta.setEvaluacion_id(idEvaluacion);
-		respuesta.setOpc_pregunta_id(1);
-		respuesta.setPre_eval_id(pre_eval_id);
+		respuesta.setResBoolean(correcta);
+		respuesta.setPre_eval_id(preguntas.get(0).getPre_eval_id());
+		
+		respuestas.add(respuesta);
 		
 		preguntas.remove(0);
 		
@@ -111,7 +115,7 @@ public class VoFResponderControllers {
 	void terminarSeccion(){
 		
 		estudianteControllers.getRespuestas().addAll(respuestas);
-		System.exit(0);
+		getEscenario().close();
 		
 	}
 

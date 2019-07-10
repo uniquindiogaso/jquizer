@@ -277,7 +277,7 @@ public class Manejador {
 		
 	}
 	
-	public void cargarEscenarioResponderSeleccion(List<Pregunta> preguntas) {
+	public void cargarEscenarioResponderSeleccion(List<ResPreguntasEvaluacion> preguntas) {
 		
 		
 		try {
@@ -296,7 +296,7 @@ public class Manejador {
 			seleccion.setEscenario(stage);
 			seleccion.setManejador(this);
 			//vof.setUser(user);
-			seleccion.setPreguntas(preguntas);
+		//	seleccion.setPreguntas(preguntas);
 			
 		} catch(IOException e){
 			

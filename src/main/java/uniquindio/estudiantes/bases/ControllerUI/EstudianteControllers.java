@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Model.Evaluacion;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResEstudiante;
 import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
@@ -57,7 +58,7 @@ public class EstudianteControllers {
 	
 	ObservableList<Evaluacion> evaluaciones = FXCollections.observableArrayList();
 		
-	List<Pregunta> respuestas = new ArrayList<>();
+	List<ResEstudiante> respuestas = new ArrayList<>();
 
 	private Manejador manejador;
 
@@ -95,7 +96,7 @@ public class EstudianteControllers {
 	@FXML
 	void cargarPreguntaSeleccion() {
 
-		manejador.cargarEscenarioResponderSeleccion(respuestas);
+	//	manejador.cargarEscenarioResponderSeleccion(respuestas);
 
 	}
 
@@ -146,16 +147,18 @@ public class EstudianteControllers {
 	/**
 	 * @return the respuestas
 	 */
-	public List<Pregunta> getRespuestas() {
+	public List<ResEstudiante> getRespuestas() {
 		return respuestas;
 	}
 
 	/**
 	 * @param respuestas the respuestas to set
 	 */
-	public void setRespuestas(List<Pregunta> respuestas) {
+	public void setRespuestas(List<ResEstudiante> respuestas) {
 		this.respuestas = respuestas;
 	}
+
+
 	
 	
 

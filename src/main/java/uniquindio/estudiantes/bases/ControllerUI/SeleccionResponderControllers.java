@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 
 public class SeleccionResponderControllers {
 
@@ -59,9 +60,9 @@ public class SeleccionResponderControllers {
 
 	private Stage escenario;
 	
-	private List<Pregunta> preguntas;
+	private List<ResPreguntasEvaluacion> preguntas;
 	
-	private List<Pregunta> respuestas;
+	private List<ResPreguntasEvaluacion> respuestas;
 	
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
@@ -84,7 +85,7 @@ public class SeleccionResponderControllers {
 		
 		Pregunta respuesta = new Pregunta();
 		
-		respuestas.add(respuesta);
+		//respuestas.add(respuesta);
 		preguntas.remove(0);
 		
 		initialize();
@@ -94,7 +95,7 @@ public class SeleccionResponderControllers {
 	@FXML
 	void terminarSeccion(){
 		
-		estudianteControllers.getRespuestas().addAll(respuestas);
+		//estudianteControllers.getRespuestas().addAll(respuestas);
 		System.exit(0);
 		
 	}
@@ -150,19 +151,6 @@ public class SeleccionResponderControllers {
 	}
 
 
-	/**
-	 * @return the preguntas
-	 */
-	public List<Pregunta> getPreguntas() {
-		return preguntas;
-	}
 
-
-	/**
-	 * @param preguntas the preguntas to set
-	 */
-	public void setPreguntas(List<Pregunta> preguntas) {
-		this.preguntas = preguntas;
-	}
 	
 }
