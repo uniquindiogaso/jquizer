@@ -55,6 +55,9 @@ public class EstudianteControllers {
 	
     @FXML
     private ComboBox<Evaluacion> comboEvaluaciones;
+    
+	@FXML
+	private Button btnRespuestas;
 	
 	ObservableList<Evaluacion> evaluaciones = FXCollections.observableArrayList();
 		
@@ -81,6 +84,13 @@ public class EstudianteControllers {
 		comboEvaluaciones.setItems(evaluacion);
 
 	}
+	
+    @FXML
+    void cargarRespuestas(ActionEvent event) {
+
+    	manejador.cargarRespuestas(respuestas);
+    	
+    }
 
 	@FXML
 	void cargarPreguntaVoF() {

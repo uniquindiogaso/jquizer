@@ -28,6 +28,7 @@
                         <Button fx:id="btnAcceder" layoutX="553.0" layoutY="430.0" mnemonicParsing="false" onAction="#cargarPreguntaVoF" text="Acceder" />
                         <Button fx:id="btnActualizar" layoutX="14.0" layoutY="418.0" mnemonicParsing="false" onAction="#actualizarEvaluacion" text="Actualizar Tabla" />
                         <ComboBox fx:id="comboEvaluaciones" layoutX="239.0" layoutY="74.0" prefWidth="150.0" promptText="Evaluaciones" />
+                        <Button fx:id="btnRespuestas" layoutX="257.0" layoutY="431.0" mnemonicParsing="false" onAction="#cargarRespuestas" text="Cargar Respuestas" />
                      </children>
                   </AnchorPane>
               </content>
