@@ -44,6 +44,8 @@ public class VoFResponderControllers {
 	private List<ResPreguntasEvaluacion> preguntas;
 	
 	private List<Pregunta> respuestas;
+	
+	private Integer idEvaluacion;
 
 	//private Usuario user;
 	
@@ -52,11 +54,20 @@ public class VoFResponderControllers {
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
-	void initialize() {
-		
-		txtEnunciado.setText(preguntas.get(0).getNombre());
+	public VoFResponderControllers() {
+	
 	}
 	
+	
+	void initialize() {
+		System.out.println(preguntas.size());
+		System.out.println("hola");
+		txtEnunciado.setText(preguntas.get(0).getNombre());
+		System.out.println(preguntas.get(0).imprimir());
+	}
+	
+
+
 	
 	@FXML
 	void contestar(ActionEvent event) {
@@ -134,6 +145,7 @@ public class VoFResponderControllers {
 	 */
 	public List<ResPreguntasEvaluacion> getPreguntas() {
 		return preguntas;
+		
 	}
 
 	/**
@@ -157,6 +169,22 @@ public class VoFResponderControllers {
 	 */
 	public void setEstudianteControllers(EstudianteControllers estudianteControllers) {
 		this.estudianteControllers = estudianteControllers;
+	}
+
+
+	/**
+	 * @return the idEvaluacion
+	 */
+	public Integer getIdEvaluacion() {
+		return idEvaluacion;
+	}
+
+
+	/**
+	 * @param idEvaluacion the idEvaluacion to set
+	 */
+	public void setIdEvaluacion(Integer idEvaluacion) {
+		this.idEvaluacion = idEvaluacion;
 	}
 	
 	
