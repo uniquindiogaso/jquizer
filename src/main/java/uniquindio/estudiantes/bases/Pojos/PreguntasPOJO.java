@@ -134,6 +134,27 @@ public class PreguntasPOJO {
         return res;    	
     }
     
+    
+    public int insertarOpcionPreguntaEmparejar(OpcionPregunta op) {
+        int res = -1;
+        final String insertQuery
+                = "INSERT INTO opc_pregunta(descripcion, correcta, pista, pregunta_id  , pareja )VALUES (:descripcion, :correcta, :pista, :pregunta_id , :pareja);";
+
+        try (Connection con = DbHelper.getSql2o().beginTransaction()) {
+            res = (int) con.createQuery(insertQuery, true)
+                    .addParameter("descripcion", op.getDescripcion())
+                    .addParameter("correcta", op.isCorrecta())
+                    .addParameter("pista", op.getPista())
+                    .addParameter("pregunta_id", op.getPregunta_id())
+                    .addParameter("pareja", op.getPareja())
+                    .executeUpdate()
+                    .getKey();
+            con.commit();
+        }
+
+        return res;    	
+    }
+    
     public List<ResPreguntasEvaluacion> getPreguntasEvaluacion(int evaluacionId){
         try (Connection con = DbHelper.getSql2o().open()) {
             final String query = "select p.id , p.nombre , p.codinterno , p.publica, p.t_defecto , p.temas_id , p.tipo_preg_id , p.valor , p.tiempo , pxe.id as \"pre_eval_id\"  from pregunta p , pre_eval pxe , evaluacion eval\r\n" + 

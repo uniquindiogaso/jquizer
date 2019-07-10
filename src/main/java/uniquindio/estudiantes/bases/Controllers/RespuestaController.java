@@ -13,9 +13,7 @@ public class RespuestaController {
 	}
 	
 	public boolean insertarRespuesta(List<ResEstudiante> res) {
-		for(ResEstudiante r : res) {
-			insertarRespuesta(res);
-		}		
+		System.out.println("Se reciben " + res.size() + " respuestas");	
 		return true;
 		
 	}
