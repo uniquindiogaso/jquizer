@@ -13,7 +13,19 @@ public class OpcionPregunta {
 		super();
 	}
 	
-	
+
+
+	public OpcionPregunta(String descripcion, boolean correcta, String pista, String pareja) {
+		super();
+		this.descripcion = descripcion;
+		this.correcta = correcta;
+		this.pista = pista;
+		this.pareja = pareja;
+	}
+
+
+
+
 
 	public OpcionPregunta(String descripcion, boolean correcta, String pista) {
 		super();
