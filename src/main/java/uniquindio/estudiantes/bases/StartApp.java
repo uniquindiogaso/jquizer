@@ -6,10 +6,12 @@ import java.util.Map;
 import uniquindio.estudiantes.bases.Controllers.TemasController;
 import uniquindio.estudiantes.bases.Controllers.UsuarioController;
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
+import uniquindio.estudiantes.bases.Model.Evaluacion;
 import uniquindio.estudiantes.bases.Model.Persona;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
+import uniquindio.estudiantes.bases.Pojos.EvaluacionPOJO;
 import uniquindio.estudiantes.bases.Pojos.PreguntasPOJO;
 import uniquindio.estudiantes.bases.Pojos.TemasPOJO;
 import uniquindio.estudiantes.bases.Pojos.UsuarioPOJO;
@@ -63,6 +65,13 @@ public class StartApp{
     		
 		}
     	
+    	
+    	EvaluacionPOJO epojo = new EvaluacionPOJO();
+    	List<Evaluacion> evaluaciones  = epojo.evaluacionesXEstudiante(4);
+    	
+    	for(Evaluacion eval : evaluaciones) {
+    		System.out.println(" eval = " + eval.imprimir());
+    	}
 
         
     }

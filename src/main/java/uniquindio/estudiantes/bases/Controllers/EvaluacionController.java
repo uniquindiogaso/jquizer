@@ -23,6 +23,11 @@ public class EvaluacionController {
 		preguntaPOJO = new PreguntasPOJO();
 	}
 
+	
+	public List<Evaluacion> evaluacionesPendientes(int estudianteId){
+		return pojo.evaluacionesXEstudiante(estudianteId);
+	}
+	
 	public boolean guardarExamen(Evaluacion e, List<Pregunta> preguntas) {
 
 		if (0 == preguntas.size()) {

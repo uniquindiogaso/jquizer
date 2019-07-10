@@ -14,6 +14,8 @@ public class Evaluacion {
 	private boolean activo;
 	private int docente_id;
 	private Tema tema;
+	private String docente;
+	private String estado;
 	
 	public Evaluacion() {
 		super();
@@ -172,7 +174,23 @@ public class Evaluacion {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+	
+	public String getDocente() {
+		return docente;
+	}
 
+	public void setDocente(String docente) {
+		this.docente = docente;
+	}
+	
+	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 	public String imprimir() {
 		return "Evaluacion [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", tipo=" + tipo
