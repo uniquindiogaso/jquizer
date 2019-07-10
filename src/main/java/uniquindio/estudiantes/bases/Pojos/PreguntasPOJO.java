@@ -46,6 +46,17 @@ public class PreguntasPOJO {
         }
     }
     
+    
+	 public TipoPregunta obtenerTipoPreguntaXPregunta(int preguntaId) {
+	        try (Connection con = DbHelper.getSql2o().open()) {
+	            final String query = "select  tp.id , tp.codinterno , tp.nombre , tp.activo from pregunta p , tipo_preg tp where  p.tipo_preg_id = tp.id and p.id = :preguntaId";
+	            return con.createQuery(query)
+	            		.addParameter("preguntaId", preguntaId)
+	                    .executeAndFetchFirst(TipoPregunta.class);
+	        }
+	 }
+    
+    
     public TipoPregunta obtenerTipoPreguntaXId(int id) {
         try (Connection con = DbHelper.getSql2o().open()) {
             final String query = "select id , codinterno , nombre from tipo_preg where id = :id LIMIT 1";
@@ -135,6 +146,16 @@ public class PreguntasPOJO {
     }
     
     
+	 public OpcionPregunta obtenerOpcionPreguntaXPregunta(int preguntaId) {
+	        try (Connection con = DbHelper.getSql2o().open()) {
+	            final String query = "select op.id from opc_pregunta op where pregunta_id = :preguntaId";
+	            return con.createQuery(query)
+	            		.addParameter("preguntaId", preguntaId)
+	                    .executeAndFetchFirst(OpcionPregunta.class);
+	        }
+	 }
+    
+    
     public int insertarOpcionPreguntaEmparejar(OpcionPregunta op) {
         int res = -1;
         final String insertQuery
@@ -175,6 +196,16 @@ public class PreguntasPOJO {
         }    	
     }
     
+    
+   public int obtenerPreguntaEvaluacion(int preguntaId, int evaluacionId) {
+       try (Connection con = DbHelper.getSql2o().open()) {
+           final String query = "select id from pre_eval where pregunta_id = :pregunta_id and evaluacion_id = :evaluacion_id";
+           return con.createQuery(query)
+           		.addParameter("preguntaId", preguntaId)
+           		.addParameter("evaluacionId", evaluacionId)
+                   .executeAndFetchFirst(Integer.class);
+       }	   
+   }
     
 
 }

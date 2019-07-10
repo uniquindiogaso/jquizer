@@ -1,0 +1,14 @@
+
+--CREATE DATABASE jquizerdb
+ -- WITH OWNER = jquizerdb_admin
+
+
+alter table pregunta drop column tiempo;
+
+alter table pregunta add column tiempo integer;
+
+alter table evaluacion add column estado VARCHAR(10) DEFAULT 'borrador';
+
+alter table opc_pregunta add column pareja VARCHAR(500);
+SELECT setval('public.evaluacion_id_seq', 2, true);
+
