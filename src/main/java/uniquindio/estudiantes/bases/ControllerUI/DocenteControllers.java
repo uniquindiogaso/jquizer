@@ -29,6 +29,7 @@ import uniquindio.estudiantes.bases.Model.Persona;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
+import uniquindio.estudiantes.bases.Utiles.Fechas;
 
 public class DocenteControllers {
 
@@ -238,8 +239,9 @@ public class DocenteControllers {
 		evaluacion.setDocente_id(user.getId());
 
 		// acomodar para capturar La fecha como Date
-		// evaluacion.setF_inicio();
-		// evaluacion.setF_fin(f_fin);
+		evaluacion.setF_inicio(Fechas.LocalDateADate(PickFechaI.getValue()));
+		evaluacion.setF_fin(Fechas.LocalDateADate(PickFechaF.getValue()));
+		
 		evaluacion.setTema(tema);
 
 		if (rbtExamen.isSelected()) {

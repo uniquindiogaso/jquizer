@@ -46,8 +46,8 @@ public class EvaluacionController {
 			}
 		}
 
-		e.setF_inicio(new Date());
-		e.setF_fin(new Date());
+		//e.setF_inicio(new Date());
+		//e.setF_fin(new Date());
 
 		int evaluacionId = pojo.insertar(e);
 		System.out.println("1. ID de Evaluacion Persistida " + evaluacionId);

@@ -2,6 +2,9 @@ package uniquindio.estudiantes.bases.Controllers;
 
 import java.util.List;
 
+import org.sql2o.Connection;
+
+import uniquindio.estudiantes.bases.Bd.DbHelper;
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
 import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Tema;
@@ -51,6 +54,13 @@ public class PreguntasController {
 		 
 	 }
 	 
+	 
+
+	 
+	 
+	 public int obtenerOpcionPreguntaId() {
+		 return 0;
+	 }
 	 
 
 }
