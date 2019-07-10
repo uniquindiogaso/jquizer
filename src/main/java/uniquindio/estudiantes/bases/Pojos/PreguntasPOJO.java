@@ -9,6 +9,7 @@ import uniquindio.estudiantes.bases.Model.BancoPreguntas;
 import uniquindio.estudiantes.bases.Model.Evaluacion;
 import uniquindio.estudiantes.bases.Model.OpcionPregunta;
 import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.ResPreguntasEvaluacion;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.TipoPregunta;
 import uniquindio.estudiantes.bases.Model.Usuario;
@@ -132,6 +133,27 @@ public class PreguntasPOJO {
 
         return res;    	
     }
+    
+    public List<ResPreguntasEvaluacion> getPreguntasEvaluacion(int evaluacionId){
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query = "select p.id , p.nombre , p.codinterno , p.publica, p.t_defecto , p.temas_id , p.tipo_preg_id , p.valor , p.tiempo from pregunta p , pre_eval pxe , evaluacion eval\r\n" + 
+            		"where p.activo = true and pxe.pregunta_id = p.id and pxe.evaluacion_id = eval.id and eval.id = :evaluacionId";
+            return con.createQuery(query)
+            		.addParameter("evaluacionId", evaluacionId)
+                    .executeAndFetch(ResPreguntasEvaluacion.class);
+        }    	
+    }
+    
+    
+    public List<OpcionPregunta> getOpcionesPregunta(int preguntaId){
+        try (Connection con = DbHelper.getSql2o().open()) {
+            final String query = "select op.id , op.descripcion , op.correcta , op.pista , op.pareja from opc_pregunta op where pregunta_id = :preguntaId";
+            return con.createQuery(query)
+            		.addParameter("preguntaId", preguntaId)
+                    .executeAndFetch(OpcionPregunta.class);
+        }    	
+    }
+    
     
 
 }
