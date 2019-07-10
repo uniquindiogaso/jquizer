@@ -10,10 +10,10 @@ public class EvaluacionPOJO {
     public int insertar(Evaluacion e) {
         int res = -1;
         final String insertQuery
-                = "INSERT INTO evaluacion(nombre, descripcion, tipo, f_inicio, f_fin, duracion, activo,docente_id) VALUES (:nombre, :descripcion, :tipo, :f_inicio, :f_fin, :duracion, true ,  :docente_id)";
+                = "INSERT INTO evaluacion(nombre, descripcion, tipo, f_inicio, f_fin, duracion, activo,docente_id) VALUES (:nombre, :descripcion, :tipo, :f_inicio, :f_fin, :duracion, true ,  :docente_id) RETURNING id;";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
-            res = con.createQuery(insertQuery, true)
+            res = (int) con.createQuery(insertQuery, true)
                     .addParameter("nombre", e.getNombre())
                     .addParameter("descripcion", e.getDescripcion())
                     .addParameter("tipo", e.getTipo())
@@ -22,10 +22,12 @@ public class EvaluacionPOJO {
                     .addParameter("duracion", e.getDuracion())
                     .addParameter("docente_id", e.getDocente_id())
                     .executeUpdate()
-                    .getResult();
+                    .getKey();
             con.commit();
         }
 
+        
+        System.out.println("ID de evaluacion en bd " + res);
         return res;
     }
 

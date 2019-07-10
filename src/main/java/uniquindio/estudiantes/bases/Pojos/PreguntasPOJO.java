@@ -61,7 +61,7 @@ public class PreguntasPOJO {
                 		+ "VALUES (:nombre, :codinterno, true, :publica, :temas_id, :tipo_preg_id, :tiempo, :valor);";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
-            res = con.createQuery(insertQuery, true)
+            res = (int) con.createQuery(insertQuery, true)
                     .addParameter("nombre", p.getNombre())
                     .addParameter("codinterno", p.getCodinterno())
                     .addParameter("publica", p.isActivo())
@@ -71,7 +71,7 @@ public class PreguntasPOJO {
                     .addParameter("valor", p.getValor())
 
                     .executeUpdate()
-                    .getResult();
+                    .getKey();
             con.commit();
         }
 
@@ -84,11 +84,11 @@ public class PreguntasPOJO {
                 = "INSERT INTO pre_eval(pregunta_id, evaluacion_id)VALUES (:pregunta_id, :evaluacion_id);";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
-            res = con.createQuery(insertQuery, true)
+            res = (int) con.createQuery(insertQuery, true)
                     .addParameter("pregunta_id", preguntaId)
                     .addParameter("evaluacion_id", evaluacionId)
                     .executeUpdate()
-                    .getResult();
+                    .getKey();
             con.commit();
         }
 
@@ -101,12 +101,12 @@ public class PreguntasPOJO {
                 = "INSERT INTO banco_pre(temas_id, pregunta_id, propietario_id) VALUES (:temaId, :preguntaId, :propietarioId);";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
-            res = con.createQuery(insertQuery, true)
+            res = (int) con.createQuery(insertQuery, true)
                     .addParameter("preguntaId", preguntaId)
                     .addParameter("propietarioId", propietarioId)
                     .addParameter("temaId", temaId)
                     .executeUpdate()
-                    .getResult();
+                    .getKey();
             con.commit();
         }
 
@@ -120,13 +120,13 @@ public class PreguntasPOJO {
                 = "INSERT INTO opc_pregunta(descripcion, correcta, pista, pregunta_id)VALUES (:descripcion, :correcta, :pista, :pregunta_id);";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
-            res = con.createQuery(insertQuery, true)
+            res = (int) con.createQuery(insertQuery, true)
                     .addParameter("descripcion", op.getDescripcion())
                     .addParameter("correcta", op.isCorrecta())
                     .addParameter("pista", op.getPista())
                     .addParameter("pregunta_id", op.getPregunta_id())
                     .executeUpdate()
-                    .getResult();
+                    .getKey();
             con.commit();
         }
 
