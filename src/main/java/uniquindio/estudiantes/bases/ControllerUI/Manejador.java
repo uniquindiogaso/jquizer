@@ -245,12 +245,12 @@ public class Manejador {
 		
 	}
 	
-	public void cargarEscenarioResponderVoF(List<ResPreguntasEvaluacion> preguntas) {
+	public void cargarEscenarioResponderVoF(List<ResPreguntasEvaluacion> preguntas, Integer idEvaluacion) {
 		
 		
 		try {
 			
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/PreguntaVF.fxml"));
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../View/PreguntaFV.fxml"));
 			Stage stage = new Stage();
 			Parent root = loader.load();
 			
@@ -264,7 +264,10 @@ public class Manejador {
 			vof.setEscenario(stage);
 			vof.setManejador(this);
 			//vof.setUser(user);
+			System.out.println("[cargarEscenarioResponderVoF] "+preguntas.size());
 			vof.setPreguntas(preguntas);
+			vof.initialize();
+			vof.setIdEvaluacion(idEvaluacion);
 			
 		} catch(IOException e){
 			

@@ -85,7 +85,10 @@ public class EstudianteControllers {
 	void cargarPreguntaVoF() {
 
 		List<ResPreguntasEvaluacion> preguntas = manejador.getPreguntasController().obtenerPreguntasEvaluacion(comboEvaluaciones.getValue().getId());
-		manejador.cargarEscenarioResponderVoF(preguntas);
+		System.out.println("[cargarPreguntaVoF] " + preguntas.size());
+		Integer id = comboEvaluaciones.getValue().getId();
+		
+		manejador.cargarEscenarioResponderVoF(preguntas, id);
 
 	}
 	
