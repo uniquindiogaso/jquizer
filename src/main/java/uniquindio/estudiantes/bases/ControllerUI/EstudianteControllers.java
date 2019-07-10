@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -50,6 +51,9 @@ public class EstudianteControllers {
 	@FXML
 	private TableView<?> tablePesoNotas;
 	
+    @FXML
+    private ComboBox<Evaluacion> comboEvaluaciones;
+	
 	ObservableList<Evaluacion> evaluaciones = FXCollections.observableArrayList();
 	
 	List<Pregunta> respuestas = new ArrayList<>();
@@ -62,33 +66,51 @@ public class EstudianteControllers {
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
 
-    @FXML
-    void actualizarEvaluacion(ActionEvent event) {
+//    @FXML
+//    void actualizarEvaluacion(ActionEvent event) {
+//
+//    	
+//		try {
+//
+//			tablePresentarExamen.setItems(evaluaciones);
+//			columNombre.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("nombre"));
+//			columTema.setCellValueFactory(new PropertyValueFactory<Evaluacion, Tema>("tema"));
+//			columTipo.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("tipo"));
+//			columInicio.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_inicio"));
+//			columFin.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_fin"));
+//
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//
+//			System.out.println("no carga " + e.getMessage());
+//
+//			e.getStackTrace();
+//
+//		}
+//    }
+    
+    
+	@FXML
+	void actualizarEvaluacion() {
 
-    	
 		try {
 
-			tablePresentarExamen.setItems(evaluaciones);
-			columNombre.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("nombre"));
-			columTema.setCellValueFactory(new PropertyValueFactory<Evaluacion, Tema>("tema"));
-			columTipo.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("tipo"));
-			columInicio.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_inicio"));
-			columFin.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_fin"));
+			ObservableList<Evaluacion> evaluacion = FXCollections.observableArrayList();
+			manejador.getEvaluacionController().evaluacionesPendientes(user.getId()).forEach(xx -> {
+				evaluacion.add(xx);
+			});
+
+			comboEvaluaciones.setItems(evaluacion);
 
 		} catch (Exception e) {
 			// TODO: handle exception
-
-			System.out.println("no carga " + e.getMessage());
+			e.printStackTrace();
+			System.out.println("no ttt carga " + e.getMessage());
 
 			e.getStackTrace();
 
 		}
-    }
-    
-    
-	
-	void cargarEvaluacion() {
-		
+
 	}
 
 	@FXML
