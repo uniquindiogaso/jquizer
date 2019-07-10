@@ -45,28 +45,30 @@ public class EvaluacionController {
 		e.setF_inicio(new Date());
 		e.setF_fin(new Date());
 
-		int idExamen = pojo.insertar(e);
+		int evaluacionId = pojo.insertar(e);
+		System.out.println("1. ID de Evaluacion Persistida " + evaluacionId);
+		e.setId(evaluacionId);
+		
+		System.out.println("2. ID de Evaluacion Persistida " + e.getId());
 
-		if (idExamen != -1) {
+		if (e.getId() != -1) {
 			for (Pregunta p : preguntas) {
 				/*
 				 * emparejar seleccion_multiple ordenar F_V
 				 */
 				TipoPregunta tipoPregunta = preguntaController.obtenerTipoPreguntaXId(p.getTipo_preg_id());
-				if ("F_V".equals(tipoPregunta.getCodinterno())){
-					guardarPreguntaFalsoVerd(p);
-				}else if ("emparejar".equals(tipoPregunta.getCodinterno())){
-					//todo
-				}else if ("seleccion_multiple".equals(tipoPregunta.getCodinterno())){
-					//todo
-				}else if ("ordenar".equals(tipoPregunta.getCodinterno())){
-					//todo
-				}else {
-					//todo : si no entra a ninguna la pregunta viene SIN PARAMETROS CORRECTOS
+				if ("F_V".equals(tipoPregunta.getCodinterno())) {
+					guardarPreguntaFalsoVerd(p, e);
+				} else if ("emparejar".equals(tipoPregunta.getCodinterno())) {
+					// todo
+				} else if ("seleccion_multiple".equals(tipoPregunta.getCodinterno())) {
+					// todo
+				} else if ("ordenar".equals(tipoPregunta.getCodinterno())) {
+					// todo
+				} else {
+					// todo : si no entra a ninguna la pregunta viene SIN PARAMETROS CORRECTOS
 				}
-				
-				
-				
+
 			}
 		} else {
 			return false;
@@ -74,14 +76,37 @@ public class EvaluacionController {
 
 		return true;
 	}
-	
-	public boolean guardarPreguntaFalsoVerd(Pregunta p) {
+
+	private boolean guardarPreguntaFalsoVerd(Pregunta p, Evaluacion evaluacion) {
 		int preguntaId = preguntaPOJO.insertarPregunta(p);
+				
+		boolean exitoPreguntXEval = guardarpreguntaXEvaluacion(preguntaId, evaluacion.getId());
+
+		boolean exitoBancoPreguntas = guardarBancoPreguntas(preguntaId, evaluacion.getDocente_id() , p.getTema_id());
 		
-		if (p.isPublica()) {
-			//enviar a banco de preguntas... ¿anque no ese publica? ... creo que si...
+		for( OpcionPregunta opPregunta : p.getOpcionPreguntas()) {
+			opPregunta.setPregunta_id(preguntaId);
+			opPregunta.setDescripcion(opPregunta.isCorrecta() ? "Verdadera" : "Falsa");
+			guardarOpcionPregunta(opPregunta);
 		}
-		return true;
+
+
+		return exitoPreguntXEval && exitoBancoPreguntas;
+	}
+
+	private boolean guardarpreguntaXEvaluacion(int preguntaId, int evaluacionId) {
+		int pregXEvaluacion_id = preguntaPOJO.insertarPreguntaXEvaluacion(preguntaId, evaluacionId);
+		return pregXEvaluacion_id != -1;
+	}
+
+	private boolean guardarBancoPreguntas(int temaId, int preguntaId, int propietarioId) {
+		int bancoXPregunta = preguntaPOJO.insertarBancoPreguntas(temaId, preguntaId, propietarioId);
+		return bancoXPregunta != -1;
+	}
+
+	private boolean guardarOpcionPregunta(OpcionPregunta op) {
+		int opcionPregunta = preguntaPOJO.insertarOpcionPregunta(op);
+		return opcionPregunta != -1;
 	}
 
 }

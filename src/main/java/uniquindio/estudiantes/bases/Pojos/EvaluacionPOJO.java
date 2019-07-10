@@ -10,8 +10,7 @@ public class EvaluacionPOJO {
     public int insertar(Evaluacion e) {
         int res = -1;
         final String insertQuery
-                = "INSERT INTO evaluacion(nombre, descripcion, tipo, f_inicio, f_fin, duracion, activo,docente_id)  "
-                + " VALUES (:nombre, :descripcion, :tipo, :f_inicio, :f_fin, :duracion, true ,  :docente_id)";
+                = "INSERT INTO evaluacion(nombre, descripcion, tipo, f_inicio, f_fin, duracion, activo,docente_id) VALUES (:nombre, :descripcion, :tipo, :f_inicio, :f_fin, :duracion, true ,  :docente_id)";
 
         try (Connection con = DbHelper.getSql2o().beginTransaction()) {
             res = con.createQuery(insertQuery, true)
@@ -22,7 +21,6 @@ public class EvaluacionPOJO {
                     .addParameter("f_fin", e.getF_fin())
                     .addParameter("duracion", e.getDuracion())
                     .addParameter("docente_id", e.getDocente_id())
-
                     .executeUpdate()
                     .getResult();
             con.commit();

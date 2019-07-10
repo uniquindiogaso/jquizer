@@ -7,6 +7,7 @@ import org.sql2o.Connection;
 
 import uniquindio.estudiantes.bases.Model.BancoPreguntas;
 import uniquindio.estudiantes.bases.Model.Evaluacion;
+import uniquindio.estudiantes.bases.Model.OpcionPregunta;
 import uniquindio.estudiantes.bases.Model.Pregunta;
 import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.TipoPregunta;
@@ -76,5 +77,61 @@ public class PreguntasPOJO {
 
         return res;
     }
+    
+    public int insertarPreguntaXEvaluacion(int preguntaId , int evaluacionId) {
+        int res = -1;
+        final String insertQuery
+                = "INSERT INTO pre_eval(pregunta_id, evaluacion_id)VALUES (:pregunta_id, :evaluacion_id);";
+
+        try (Connection con = DbHelper.getSql2o().beginTransaction()) {
+            res = con.createQuery(insertQuery, true)
+                    .addParameter("pregunta_id", preguntaId)
+                    .addParameter("evaluacion_id", evaluacionId)
+                    .executeUpdate()
+                    .getResult();
+            con.commit();
+        }
+
+        return res;    	
+    }
+    
+    public int insertarBancoPreguntas(int preguntaId , int propietarioId , int temaId) {
+        int res = -1;
+        final String insertQuery
+                = "INSERT INTO banco_pre(temas_id, pregunta_id, propietario_id) VALUES (:temaId, :preguntaId, :propietarioId);";
+
+        try (Connection con = DbHelper.getSql2o().beginTransaction()) {
+            res = con.createQuery(insertQuery, true)
+                    .addParameter("preguntaId", preguntaId)
+                    .addParameter("propietarioId", propietarioId)
+                    .addParameter("temaId", temaId)
+                    .executeUpdate()
+                    .getResult();
+            con.commit();
+        }
+
+        return res;    	
+    }
+
+    
+    public int insertarOpcionPregunta(OpcionPregunta op) {
+        int res = -1;
+        final String insertQuery
+                = "INSERT INTO opc_pregunta(descripcion, correcta, pista, pregunta_id)VALUES (:descripcion, :correcta, :pista, :pregunta_id);";
+
+        try (Connection con = DbHelper.getSql2o().beginTransaction()) {
+            res = con.createQuery(insertQuery, true)
+                    .addParameter("descripcion", op.getDescripcion())
+                    .addParameter("correcta", op.isCorrecta())
+                    .addParameter("pista", op.getPista())
+                    .addParameter("pregunta_id", op.getPregunta_id())
+                    .executeUpdate()
+                    .getResult();
+            con.commit();
+        }
+
+        return res;    	
+    }
+    
 
 }
