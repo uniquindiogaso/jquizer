@@ -63,44 +63,6 @@ public class VoFControllers {
 	void crearPregunta(ActionEvent event) {
 
 		String enunciado = txtEnunciado.getText();
-
-//		if (rbtFalso.isSelected()) {
-//
-//			if (publica.isSelected()) {
-//
-//				System.out.println(enunciado);
-//				System.out.println(tema.getNombre());
-//				System.out.println("Publica: " + publica.isSelected());
-//				System.out.println("falso");
-//
-//			} else {
-//
-//				System.out.println(enunciado);
-//				System.out.println(tema.getNombre());
-//				System.out.println("Publica: " + publica.isSelected());
-//				System.out.println("falso");
-//			}
-//
-//		}
-//
-//		if (rbtVerdadero.isSelected()) {
-//
-//			if (publica.isSelected()) {
-//
-//				System.out.println(enunciado);
-//				System.out.println(tema.getNombre());
-//				System.out.println("Publica: " + publica.isSelected());
-//				System.out.println("Verdadero");
-//
-//			} else {
-//
-//				System.out.println(enunciado);
-//				System.out.println(tema.getNombre());
-//				System.out.println("Publica: " + publica.isSelected());
-//				System.out.println("Verdadero");
-//			}
-//
-//		}
 		
 		Pregunta pregunta = new Pregunta();
 		

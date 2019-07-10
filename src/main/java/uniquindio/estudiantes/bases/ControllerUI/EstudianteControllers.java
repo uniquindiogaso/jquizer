@@ -1,32 +1,109 @@
 package uniquindio.estudiantes.bases.ControllerUI;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import uniquindio.estudiantes.bases.Model.Evaluacion;
+import uniquindio.estudiantes.bases.Model.Pregunta;
+import uniquindio.estudiantes.bases.Model.Tema;
 import uniquindio.estudiantes.bases.Model.Usuario;
 
 public class EstudianteControllers {
+
+	@FXML
+	private TableView<Evaluacion> tablePresentarExamen;
+
+	@FXML
+	private TableColumn<Evaluacion, String> columNombre;
+
+	@FXML
+	private TableColumn<Evaluacion, Tema> columTema;
+
+	@FXML
+	private TableColumn<Evaluacion, String> columTipo;
+
+	@FXML
+	private TableColumn<Evaluacion, Date> columInicio;
+
+	@FXML
+	private TableColumn<Evaluacion, Date> columFin;
+
+	@FXML
+	private Button btnAcceder;
+
+	@FXML
+	private Button btnActualizar;
+
+	@FXML
+	private TableView<?> tableNotas;
+
+	@FXML
+	private TableView<?> tablePesoNotas;
 	
-    @FXML
-    private TableView<?> tableHorario;
+	ObservableList<Evaluacion> evaluaciones = FXCollections.observableArrayList();
+	
+	List<Pregunta> respuestas = new ArrayList<>();
 
-    @FXML
-    private TableView<?> tablePresentarExamen;
-
-    @FXML
-    private Button btnAcceder;
-
-    @FXML
-    private TableView<?> tableNotas;
-    
 	private Manejador manejador;
-	
+
 	private Stage escenario;
-	
+
 	private Usuario user;
 
 //-----------------------------------------Metodos------------------------------------------------------------------------
+
+    @FXML
+    void actualizarEvaluacion(ActionEvent event) {
+
+    	
+		try {
+
+			tablePresentarExamen.setItems(evaluaciones);
+			columNombre.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("nombre"));
+			columTema.setCellValueFactory(new PropertyValueFactory<Evaluacion, Tema>("tema"));
+			columTipo.setCellValueFactory(new PropertyValueFactory<Evaluacion, String>("tipo"));
+			columInicio.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_inicio"));
+			columFin.setCellValueFactory(new PropertyValueFactory<Evaluacion, Date>("f_fin"));
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			System.out.println("no carga " + e.getMessage());
+
+			e.getStackTrace();
+
+		}
+    }
+    
+    
+	
+	void cargarEvaluacion() {
+		
+	}
+
+	@FXML
+	void cargarPreguntaVoF() {
+
+		manejador.cargarEscenarioResponderVoF(respuestas);
+
+	}
+	
+	@FXML
+	void cargarPreguntaSeleccion() {
+
+		manejador.cargarEscenarioResponderSeleccion(respuestas);
+
+	}
 
 //---------------------------------Get`s and Set`s------------------------------------------------------------------------
 
@@ -71,5 +148,21 @@ public class EstudianteControllers {
 	public void setUser(Usuario user) {
 		this.user = user;
 	}
+
+	/**
+	 * @return the respuestas
+	 */
+	public List<Pregunta> getRespuestas() {
+		return respuestas;
+	}
+
+	/**
+	 * @param respuestas the respuestas to set
+	 */
+	public void setRespuestas(List<Pregunta> respuestas) {
+		this.respuestas = respuestas;
+	}
 	
+	
+
 }
